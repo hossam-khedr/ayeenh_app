@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "556812968398",
+    "project_id": "ayeenh-cfca9",
+    "storage_bucket": "ayeenh-cfca9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556812968398:android:ae3e8ddae2136679facb9f",
+        "android_client_info": {
+          "package_name": "com.ayeenh.www.ayeenh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2pB-UkAqMcciF16IEfSrTCdoRjI7mdKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
