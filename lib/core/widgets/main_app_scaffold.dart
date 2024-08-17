@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../utilities/app_colors.dart';
+
 class MainAppScaffold extends StatefulWidget {
   final Widget body;
   final Widget? floatingActionButton;
@@ -38,17 +40,17 @@ class _MainAppScaffoldState extends State<MainAppScaffold> {
       title: Text(widget.appBarTitle ?? ''),
       centerTitle: widget.centerAppBarTitle,
       elevation: 0,
-      backgroundColor: widget.appBarColor ?? Colors.white,
+      backgroundColor: widget.appBarColor ?? AppColors.whitColor,
     );
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
         statusBarColor:
-            widget.changeToolbarColor ? Colors.redAccent : Colors.white,
+            widget.changeToolbarColor ? AppColors.primaryColor : AppColors.whitColor,
         statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: widget.scaffoldColor ?? Colors.white,
+        backgroundColor: widget.scaffoldColor ?? AppColors.whitColor,
         appBar: widget.shooAppBar ? appBar : null,
         body: Stack(
           children: [widget.body],
