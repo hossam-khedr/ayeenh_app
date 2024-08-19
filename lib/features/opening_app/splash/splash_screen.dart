@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     _timer = Timer(const Duration(seconds: 3), _nextScreen);
   }
   _nextScreen(){
-    Navigator.pushReplacementNamed(context, RoutesName.onBoarding);
+    Navigator.pushReplacementNamed(context, RoutesName.selectLanguage);
   }
   @override
   void initState() {
