@@ -1,5 +1,6 @@
 import 'package:ayeenh/core/utilities/app_routes.dart';
 import 'package:ayeenh/features/home.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,6 +16,9 @@ class AyeenhApp extends StatelessWidget {
       builder: (context,child){
         return  MaterialApp(
           debugShowCheckedModeBanner: false,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         initialRoute: RoutesName.splash,
          routes: AppRoutes.routes,
         );
