@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_colors.dart';
 
 abstract class AppStyles {
+  static const String fontFamily = 'Rubik';
   static TextStyle onBoardingTitleStyle() {
     return TextStyle(
       color: AppColors.darkGryColor,
@@ -38,6 +39,20 @@ abstract class AppStyles {
         fontWeight: FontWeight.bold,
         fontSize: 20.sp,
         color: AppColors.darkGryColor
+    );
+  }
+  static TextStyle subTitleStyle(){
+    return TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 12.sp,
+        color: AppColors.gryColor
+    );
+  }
+  static TextStyle hintStyle(){
+    return TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 14.sp,
+        color: AppColors.gryColor
     );
   }
   static TextStyle darkGry16W600(){

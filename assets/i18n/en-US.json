@@ -1,5 +1,12 @@
 {
   "next": "Next",
   "skip": "Skip",
-  "select_language_app": "Select language App"
+  "select_language_app": "Select language App",
+  "login": "Login",
+  "register": "Register",
+  "welcome_back": "Welcome back",
+  "you_login_from_new": "You login from new",
+  "email": "Email",
+  "password": "Password",
+  "forgot_password": "Forgot password?"
 }
