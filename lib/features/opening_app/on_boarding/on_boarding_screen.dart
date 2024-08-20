@@ -70,7 +70,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
                 onTap: () {
                   if (pageNum == OnBoardingModel.getDataModel.length - 1) {
-                    Navigator.pushReplacementNamed(context, RoutesName.login);
+                    Navigator.pushReplacementNamed(context, RoutesName.auth);
                   } else {
                     pageNum++;
                     pageController.animateToPage(
@@ -82,7 +82,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 }),
             TextButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, RoutesName.login);
+                Navigator.pushReplacementNamed(context, RoutesName.auth);
               },
               child: Text('skip'.tr(),style: AppStyles.textButtonStyle(),),
             ),

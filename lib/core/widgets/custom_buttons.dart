@@ -1,5 +1,6 @@
 
 
+import 'package:ayeenh/core/utilities/app_sized.dart';
 import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +22,7 @@ abstract class CustomButtons{
         width: width ?? double.infinity,
         height: 50,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(AppSized.constantRadius),
           color: color ?? AppColors.primaryColor,
           border: Border.all(
             color: AppColors.darkGryColor,

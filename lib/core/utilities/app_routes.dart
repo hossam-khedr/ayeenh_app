@@ -1,3 +1,4 @@
+import 'package:ayeenh/features/auth/prisintation/screens/auth_screen.dart';
 import 'package:ayeenh/features/auth/prisintation/screens/login_screen.dart';
 import 'package:ayeenh/features/opening_app/on_boarding/on_boarding_screen.dart';
 import 'package:ayeenh/features/opening_app/select_language/select_language_screen.dart';
@@ -10,7 +11,7 @@ abstract class AppRoutes {
     RoutesName.splash: (context) => const SplashScreen(),
     RoutesName.selectLanguage: (context) => const SelectLanguageScreen(),
     RoutesName.onBoarding: (context) => const OnBoardingScreen(),
-    RoutesName.login: (context) => const LoginScreen(),
+    RoutesName.auth: (context) => const AuthScreen(),
   };
 
   static Map<String, WidgetBuilder> get routes => _routes;
@@ -20,5 +21,6 @@ abstract class RoutesName {
   static const splash = 'splash';
   static const selectLanguage = 'selectLanguage';
   static const onBoarding = 'onBoarding';
+  static const auth = 'auth';
   static const login = 'login';
 }

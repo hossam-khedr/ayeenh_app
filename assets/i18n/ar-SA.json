@@ -1,5 +1,12 @@
 {
   "next": "التالي",
   "skip": "تخطى",
-  "select_language_app": "اختر لغة التطبيق"
+  "select_language_app": "اختر لغة التطبيق",
+  "login": "تسجيل دخول",
+  "register": "انشاء حساب",
+  "welcome_back": "مرحبًا بعودتك",
+  "you_login_from_new": "يمكنك تسجيل الدخول من جديد",
+  "email": "البريد الالكتروني",
+  "password": "كلمة المرور",
+  "forgot_password": "هل نسيت كلمة السر؟"
 }

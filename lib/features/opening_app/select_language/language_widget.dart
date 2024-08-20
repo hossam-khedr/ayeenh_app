@@ -30,7 +30,9 @@ class _LanguageWidgetState extends State<LanguageWidget> {
         width: 120.w,
         height: 100.h,
         decoration: BoxDecoration(
-          color: AppColors.whitColor,
+          color: widget.isSelected
+              ? AppColors.primaryColor.withOpacity(0.3)
+              : AppColors.whitColor,
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(
             color:
