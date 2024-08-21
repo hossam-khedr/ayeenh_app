@@ -8,5 +8,11 @@
   "you_login_from_new": "يمكنك تسجيل الدخول من جديد",
   "email": "البريد الالكتروني",
   "password": "كلمة المرور",
-  "forgot_password": "هل نسيت كلمة السر؟"
+  "forgot_password": "هل نسيت كلمة السر؟",
+  "create_new_account": "إنشاء حساب جديد",
+  "sub_title_register_body": "الإنشاء حساب جديد املا البيانات في الاسفل",
+  "name": "الاسم",
+  "phone": "الهاتف",
+  "address": "العنوان",
+  "age": "العمر"
 }

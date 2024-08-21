@@ -3,10 +3,13 @@ import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:ayeenh/core/widgets/custom_buttons.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utilities/app_colors.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
+import '../logic/cubit.dart';
+import 'handel_login_state.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
@@ -16,11 +19,9 @@ class LoginBody extends StatefulWidget {
 }
 
 class _LoginBodyState extends State<LoginBody> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<AuthCubit>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,13 +35,13 @@ class _LoginBodyState extends State<LoginBody> {
         ),
         AppSizedBox.sizeBoxH20,
         CustomTextFormField(
-          controller: emailController,
+          controller: cubit.emailController,
           hint: 'email'.tr(),
         ),
         AppSizedBox.sizeBoxH20,
         CustomTextFormField(
           isPass: true,
-          controller: passwordController,
+          controller: cubit.passwordController,
           hint: 'password'.tr(),
         ),
         AppSizedBox.sizeBoxH20,
@@ -50,16 +51,15 @@ class _LoginBodyState extends State<LoginBody> {
             child: Text(
               'forgot_password'.tr(),
               style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w600,
-                color: AppColors.favorite
-              ),
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.favorite),
             ),
             onPressed: () {},
           ),
         ),
         AppSizedBox.sizeBoxH20,
-        CustomButtons.normal(title: 'login'.tr(), onTap: (){})
+        const HandelLoginState(),
       ],
     );
   }

@@ -8,5 +8,11 @@
   "you_login_from_new": "You login from new",
   "email": "Email",
   "password": "Password",
-  "forgot_password": "Forgot password?"
+  "forgot_password": "Forgot password?",
+  "create_new_account": "Create new account",
+  "sub_title_register_body": "Create a new account Fill in the data below",
+  "name": "name",
+  "phone": "phone",
+  "address": "address",
+  "age": "age"
 }

@@ -1,8 +1,12 @@
+import 'package:ayeenh/core/utilities/di.dart';
+import 'package:ayeenh/features/auth/prisintation/logic/cubit.dart';
 import 'package:ayeenh/features/auth/prisintation/screens/auth_screen.dart';
 import 'package:ayeenh/features/auth/prisintation/screens/login_screen.dart';
+import 'package:ayeenh/features/home/presentation/screens/home_screen.dart';
 import 'package:ayeenh/features/opening_app/on_boarding/on_boarding_screen.dart';
 import 'package:ayeenh/features/opening_app/select_language/select_language_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/opening_app/splash/splash_screen.dart';
 
@@ -11,7 +15,11 @@ abstract class AppRoutes {
     RoutesName.splash: (context) => const SplashScreen(),
     RoutesName.selectLanguage: (context) => const SelectLanguageScreen(),
     RoutesName.onBoarding: (context) => const OnBoardingScreen(),
-    RoutesName.auth: (context) => const AuthScreen(),
+    RoutesName.auth: (context) => BlocProvider(
+          create: (context) => getIt<AuthCubit>(),
+          child: const AuthScreen(),
+        ),
+    RoutesName.home: (context) => const HomeScreen(),
   };
 
   static Map<String, WidgetBuilder> get routes => _routes;
@@ -23,4 +31,5 @@ abstract class RoutesName {
   static const onBoarding = 'onBoarding';
   static const auth = 'auth';
   static const login = 'login';
+  static const home = 'home';
 }
