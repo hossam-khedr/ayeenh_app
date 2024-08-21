@@ -55,6 +55,13 @@ abstract class AppStyles {
         color: AppColors.gryColor
     );
   }
+  static TextStyle errorStyle(){
+    return TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 12.sp,
+        color: AppColors.gryColor
+    );
+  }
   static TextStyle darkGry16W600(){
     return  TextStyle(
       fontSize: 16.sp,
