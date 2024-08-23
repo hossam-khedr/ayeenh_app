@@ -21,11 +21,13 @@ class AuthCubit extends Cubit<AuthStates> {
   TextEditingController addressController = TextEditingController();
   TextEditingController ageController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController loginEmailController = TextEditingController();
+  TextEditingController loginPasswordController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   Future<void> login() async {
     emit(state.copyWith(authStatus: AuthStatus.loading));
-    (await _loginUseCase.execute(emailController.text, passwordController.text))
+    (await _loginUseCase.execute(loginEmailController.text, loginPasswordController.text))
         .fold((failure) {
           log(failure.errorMassage);
       emit(

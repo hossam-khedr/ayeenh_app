@@ -29,14 +29,14 @@ class HandelLoginState extends StatelessWidget {
           //   showDialog(
           //     context: context,
           //     builder: (context) =>
-          //         PobUpErrorState(errorMassage: state.errorMassage ?? 'null'),
+          //         PobUpErrorState(errorMassage: state.errorMassage!),
           //   );
           // }
         },
         child: CustomButtons.normal(
           title: 'login'.tr(),
           onTap: () {
-          //  cubit.login();
+           // cubit.login();
             Navigator.pushReplacementNamed(context, RoutesName.home);
           },
         ),

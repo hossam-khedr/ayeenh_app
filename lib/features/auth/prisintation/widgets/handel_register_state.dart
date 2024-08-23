@@ -28,7 +28,7 @@ class HandelRegisterState extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) =>
-                  PobUpErrorState(errorMassage: state.errorMassage ?? 'null'),
+                  PobUpErrorState(errorMassage: state.errorMassage!),
             );
           }
         },

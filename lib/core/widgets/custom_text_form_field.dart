@@ -58,6 +58,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       controller: widget.controller,
       maxLines: widget.maxLines ?? 1,
       decoration: InputDecoration(
+
         contentPadding: const EdgeInsets.fromLTRB(
           12,
           16,
