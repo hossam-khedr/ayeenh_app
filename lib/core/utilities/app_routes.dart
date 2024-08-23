@@ -2,6 +2,7 @@ import 'package:ayeenh/core/utilities/di.dart';
 import 'package:ayeenh/features/auth/prisintation/logic/cubit.dart';
 import 'package:ayeenh/features/auth/prisintation/screens/auth_screen.dart';
 import 'package:ayeenh/features/auth/prisintation/screens/login_screen.dart';
+import 'package:ayeenh/features/home/presentation/screens/details_category_screen.dart';
 import 'package:ayeenh/features/home/presentation/screens/home_screen.dart';
 import 'package:ayeenh/features/opening_app/on_boarding/on_boarding_screen.dart';
 import 'package:ayeenh/features/opening_app/select_language/select_language_screen.dart';
@@ -20,6 +21,7 @@ abstract class AppRoutes {
           child: const AuthScreen(),
         ),
     RoutesName.home: (context) => const HomeScreen(),
+    RoutesName.detailsCategory: (context) => const DetailsCategoryScreen(),
   };
 
   static Map<String, WidgetBuilder> get routes => _routes;
@@ -32,4 +34,5 @@ abstract class RoutesName {
   static const auth = 'auth';
   static const login = 'login';
   static const home = 'home';
+  static const detailsCategory = 'detailsCategory';
 }

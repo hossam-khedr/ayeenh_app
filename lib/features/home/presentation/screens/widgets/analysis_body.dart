@@ -1,3 +1,4 @@
+import 'package:ayeenh/core/utilities/app_routes.dart';
 import 'package:ayeenh/core/utilities/app_sized.dart';
 import 'package:ayeenh/core/utilities/app_sized_box.dart';
 import 'package:ayeenh/core/utilities/svg_icons.dart';
@@ -37,25 +38,32 @@ class _AnalysisBodyState extends State<AnalysisBody> {
         SliverList(
           delegate: SliverChildBuilderDelegate(
             childCount: AnalysisCategoryModel.analysisCategory.length,
-            semanticIndexOffset: 10,
-            (context, index) => Container(
-              alignment: AlignmentDirectional.centerStart,
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 5.w),
-              margin: EdgeInsets.symmetric(vertical: 8.h),
-              width: double.infinity,
-              height: 55.h,
-              decoration: BoxDecoration(
-                  color: AppColors.whitColor.withOpacity(0.4),
-                  border: Border.all(color: AppColors.primaryColor, width: 1),
-                  borderRadius: BorderRadius.circular(10.r)),
-              child: Text(
-                AnalysisCategoryModel.analysisCategory[index].title,
+            (context, index) => InkWell(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  RoutesName.detailsCategory,
+                  arguments: AnalysisCategoryModel.analysisCategory[index],
+                );
+              },
+              child: Container(
+                alignment: AlignmentDirectional.centerStart,
+                padding: EdgeInsetsDirectional.symmetric(horizontal: 5.w),
+                margin: EdgeInsets.symmetric(vertical: 8.h),
+                width: double.infinity,
+                height: 55.h,
+                decoration: BoxDecoration(
+                    color: AppColors.whitColor.withOpacity(0.4),
+                    border: Border.all(color: AppColors.primaryColor, width: 1),
+                    borderRadius: BorderRadius.circular(10.r)),
+                child: Text(
+                  AnalysisCategoryModel.analysisCategory[index].title,
+                ),
               ),
             ),
           ),
         ),
       ],
     );
-
   }
 }
