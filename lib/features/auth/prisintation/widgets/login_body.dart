@@ -35,13 +35,13 @@ class _LoginBodyState extends State<LoginBody> {
         ),
         AppSizedBox.sizeBoxH20,
         CustomTextFormField(
-          controller: cubit.emailController,
+          controller: cubit.loginEmailController,
           hint: 'email'.tr(),
         ),
         AppSizedBox.sizeBoxH20,
         CustomTextFormField(
           isPass: true,
-          controller: cubit.passwordController,
+          controller: cubit.loginPasswordController,
           hint: 'password'.tr(),
         ),
         AppSizedBox.sizeBoxH20,

@@ -14,5 +14,9 @@
   "name": "name",
   "phone": "phone",
   "address": "address",
-  "age": "age"
+  "age": "age",
+  "analysis": "Analysis",
+  "add_request": "Book an appointment",
+  "settings": "Settings",
+  "results": "Results"
 }

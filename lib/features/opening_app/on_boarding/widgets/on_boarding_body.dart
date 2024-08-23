@@ -23,7 +23,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(widget.image),
+        Image.asset(widget.image,fit: BoxFit.cover,),
         Text(widget.title,style: AppStyles.onBoardingTitleStyle()),
         Text(widget.subTitle,style: AppStyles.onBoardingSubTitleStyle()),
       ],

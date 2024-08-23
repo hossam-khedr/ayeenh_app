@@ -7,8 +7,8 @@ class OnBoardingModel{
   OnBoardingModel({required this.title,required this.subTitle,required this.image});
 
   static List<OnBoardingModel>getDataModel = [
-    OnBoardingModel(title: 'any title', subTitle: 'any subTitle', image: PngIcons.onBoardingImage1),
-    OnBoardingModel(title: 'any title', subTitle: 'any subTitle', image: PngIcons.onBoardingImage2),
-    OnBoardingModel(title: 'any title', subTitle: 'any subTitle', image: PngIcons.onBoardingImage3),
+    OnBoardingModel(title: 'any title', subTitle: 'any subTitle', image: PngIcons.banner),
+    OnBoardingModel(title: 'any title', subTitle: 'any subTitle', image: PngIcons.banner2),
+    OnBoardingModel(title: 'any title', subTitle: 'any subTitle', image: PngIcons.banner3),
   ];
 }
