@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.all(8.0),
                       child: AnalysisBody(),
                     )
-                    : navBarItem == NavBarItem.add
+                    : navBarItem == NavBarItem.results
                         ? Center(child: Text('results'.tr()))
                         : navBarItem == NavBarItem.setting
                             ? Center(child: Text('settings'.tr()))
@@ -58,11 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ItemInNavBar(
                     icon: Icons.receipt_sharp,
-                    isSelected: navBarItem == NavBarItem.add ? true : false,
+                    isSelected: navBarItem == NavBarItem.results ? true : false,
                     label: 'results'.tr(),
                     onTap: () {
                       setState(() {
-                        navBarItem = NavBarItem.add;
+                        navBarItem = NavBarItem.results;
                       });
                     },
                   ),

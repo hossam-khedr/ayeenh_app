@@ -9,5 +9,5 @@ enum AuthType{
 enum NavBarItem{
   home,
   setting,
-  add,
+  results,
 }
