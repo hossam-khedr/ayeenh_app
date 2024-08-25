@@ -27,6 +27,13 @@ abstract class AppStyles {
        color: AppColors.whitColor
     );
   }
+  static TextStyle outLineButtonTextStyle(){
+    return TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 16.sp,
+        color: AppColors.gryColor
+    );
+  }
   static TextStyle textButtonStyle(){
     return TextStyle(
         fontWeight: FontWeight.bold,

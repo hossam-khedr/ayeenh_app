@@ -19,5 +19,8 @@
   "add_request": "حجز موعد",
   "settings": "إعدادات",
   "results": "النتائج",
-  "analysis_price": "سعر التحليل"
+  "analysis_price": "سعر التحليل",
+  "date": "التاريخ",
+  "sure":"تأكيد",
+  "cancel": "إلغاء"
 }

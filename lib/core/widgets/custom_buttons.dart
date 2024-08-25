@@ -13,6 +13,7 @@ abstract class CustomButtons{
     required void Function()? onTap,
     double? width,
     Color? color,
+    Color? iconColor,
     IconData? icon,
 }){
     return GestureDetector(
@@ -32,10 +33,46 @@ abstract class CustomButtons{
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            icon!=null?Icon(icon):const SizedBox.shrink(),
+            icon!=null?Icon(icon,color: iconColor??AppColors.whitColor,):const SizedBox.shrink(),
             icon!=null?SizedBox(width: 10.w,):const SizedBox.shrink(),
             Center(
               child: Text(title,style: AppStyles.buttonTextStyle(),),
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
+  static Widget outLine({
+    required String title,
+    required void Function()? onTap,
+    double? width,
+    Color? color,
+    Color? iconColor,
+    IconData? icon,
+  }){
+    return GestureDetector(
+      onTap:  onTap,
+      child: Container(
+        alignment: AlignmentDirectional.center,
+        width: width ?? double.infinity,
+        height: 50,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppSized.constantRadius),
+            color: color ?? AppColors.primaryColor,
+            border: Border.all(
+                color: AppColors.darkGryColor,
+                width: 1
+            )
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            icon!=null?Icon(icon,color: iconColor??AppColors.whitColor,):const SizedBox.shrink(),
+            icon!=null?SizedBox(width: 10.w,):const SizedBox.shrink(),
+            Center(
+              child: Text(title,style: AppStyles.outLineButtonTextStyle(),),
             ),
 
           ],
