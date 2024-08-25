@@ -19,5 +19,7 @@
   "add_request": "Book an appointment",
   "settings": "Settings",
   "results": "Results",
-  "analysis_price": "Analysis price"
+  "analysis_price": "Analysis price",
+  "date": "Date",
+  "sure":"Sure"
 }

@@ -2,6 +2,7 @@ import 'package:ayeenh/core/utilities/app_sized.dart';
 import 'package:ayeenh/core/utilities/app_sized_box.dart';
 import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:ayeenh/core/widgets/custom_buttons.dart';
+import 'package:ayeenh/features/home/presentation/screens/widgets/add_request_inpu_user.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,66 +30,66 @@ class _DetailsCategoryScreenState extends State<DetailsCategoryScreen> {
       changeToolbarColor: true,
       centerAppBarTitle: true,
       appBarTitle: model.title,
-      appBarColor: AppColors.primaryColor,
+      appBarColor: AppColors.whitColor,
       body: Padding(
         padding:
             EdgeInsets.symmetric(horizontal: AppSized.horizontalPaddingConst),
-        child: Column(
-          children: [
-            AppSizedBox.sizeBoxH20,
-            Container(
-              padding: EdgeInsets.all(20.w),
-              width: double.infinity,
-              height: 200.h,
-              decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.primaryColor, width: 2),
-                  borderRadius: BorderRadius.circular(10.r)),
-              child: ListView.builder(
-                  itemCount: model.categoryDetails.analysisType.length,
-                  itemBuilder: (context, index) {
-                    return Text(
-                      model.categoryDetails.analysisType[index],
-                      style:
-                          AppStyles.subTitleStyle().copyWith(fontSize: 16.sp),
-                    );
-                  }),
-            ),
-            AppSizedBox.sizeBoxH20,
-            Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text('analysis_price'.tr()),
-            ),
-            AppSizedBox.sizeBoxH10,
-            Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Container(
-                alignment: AlignmentDirectional.center,
-                width: 100.w,
-                height: 40.h,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              AppSizedBox.sizeBoxH20,
+              Container(
+                padding: EdgeInsets.all(20.w),
+                width: double.infinity,
+                height: 200.h,
                 decoration: BoxDecoration(
-                    color: AppColors.success,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Text('${model.categoryDetails.price} ج م'),
+                    border: Border.all(color: AppColors.darkGryColor, width: 2),
+                    borderRadius: BorderRadius.circular(10.r)),
+                child: ListView.builder(
+                    itemCount: model.categoryDetails.analysisType.length,
+                    itemBuilder: (context, index) {
+                      return Text(
+                        model.categoryDetails.analysisType[index],
+                        style:
+                            AppStyles.subTitleStyle().copyWith(fontSize: 16.sp),
+                      );
+                    }),
               ),
-            ),
-            AppSizedBox.sizeBoxH20,
-            CustomButtons.normal(
-              width: 250.w,
-              title: 'add_request'.tr(),
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => Container(
-                    height: 300.h,
-                    decoration: BoxDecoration(
+              AppSizedBox.sizeBoxH20,
+               Text(model.categoryDetails.description),
+              AppSizedBox.sizeBoxH10,
+              Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: Container(
+                  alignment: AlignmentDirectional.center,
+                  width: 100.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
                       color: AppColors.whitColor,
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
+                      borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: AppColors.gryColor,
+                      width: 2
+                    )
                   ),
-                );
-              },
-            )
-          ],
+                  child: Text('${model.categoryDetails.price} ج م'),
+                ),
+              ),
+              AppSizedBox.sizeBoxH20,
+              CustomButtons.normal(
+                width: 250.w,
+                color: AppColors.success,
+                title: 'add_request'.tr(),
+                onTap: () {
+                  showDialog(
+                   // backgroundColor: AppColors.whitColor,
+                    context: context,
+                    builder: (context) => const AddRequestInputUser()
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
