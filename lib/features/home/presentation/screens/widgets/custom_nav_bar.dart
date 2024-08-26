@@ -17,11 +17,12 @@ class _CustomNavBarState extends State<CustomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      padding: EdgeInsets.all(4.w),
+      width: 250.w,
       height: 60.h,
       decoration: BoxDecoration(
-        color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(AppSized.constantRadius),
+        color: AppColors.navBarColor.withOpacity(0.4),
+        borderRadius: BorderRadius.circular(25.r),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
