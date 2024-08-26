@@ -1,4 +1,5 @@
 import 'package:ayeenh/core/utilities/app_colors.dart';
+import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,41 +23,39 @@ class ItemInNavBar extends StatefulWidget {
 class _ItemInNavBarState extends State<ItemInNavBar> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: widget.onTap,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Container(
-            width: 80.w,
-            height: 30.h,
-            decoration: BoxDecoration(
-              color: widget.isSelected
-                  ? AppColors.whitColor
-                  : AppColors.primaryColor,
-              borderRadius: BorderRadius.circular(30.r),
-              border: Border.all(
-                  color: widget.isSelected
-                      ? AppColors.darkGryColor
-                      : AppColors.primaryColor,
-                  width: widget.isSelected ? 1.0 : 0.0),
-            ),
-            child: Icon(
+      child: Container(
+        padding: EdgeInsets.all(8.w),
+        width: 60.w,
+        height: 60.h,
+        decoration: BoxDecoration(
+          //shape: BoxShape.circle,
+          color: widget.isSelected
+              ? AppColors.primaryColor
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(20.r),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Icon(
               widget.icon,
               color: widget.isSelected
-                  ? AppColors.primaryColor
-                  : AppColors.whitColor,
-            ),
-          ),
-          Text(
-            widget.label,
-            style: TextStyle(
-              color: widget.isSelected
                   ? AppColors.darkGryColor
-                  : AppColors.whitColor,
+                  : AppColors.gryColor,
             ),
-          ),
-        ],
+            Text(
+              widget.label,
+              style: AppStyles.subTitleStyle(
+              ).copyWith(
+                color: widget.isSelected
+                    ? AppColors.darkGryColor
+                    : AppColors.gryColor,
+              ),
+            ),
+          ],
+        )
       ),
     );
   }

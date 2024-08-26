@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     : navBarItem == NavBarItem.results
                         ? Center(child: Text('results'.tr()))
                         : navBarItem == NavBarItem.setting
-                            ? Center(child: Text('settings'.tr()))
+                            ? Center(child: Text('user_requests'.tr()))
                             : const SizedBox.shrink(),
               ),
              // const Spacer(),
@@ -67,9 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   ItemInNavBar(
-                    icon: Icons.settings,
+                    icon: Icons.get_app_rounded,
                     isSelected: navBarItem == NavBarItem.setting ? true : false,
-                    label: 'settings'.tr(),
+                    label: 'user_requests'.tr(),
                     onTap: () {
                       setState(() {
                         navBarItem = NavBarItem.setting;

@@ -6,5 +6,6 @@ abstract class AppColors{
  static const Color gryColor = Color(0xFFA9A9A9);
  static const Color darkGryColor = Color(0xFF333333);
  static const Color favorite = Color(0xFFD92D20);
+ static const Color navBarColor = Color(0xFFD9D9D9);
  static const Color success = Colors.green;
 }

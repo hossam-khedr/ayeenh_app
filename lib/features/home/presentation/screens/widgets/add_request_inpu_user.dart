@@ -6,6 +6,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'add_request_success.dart';
+
 class AddRequestInputUser extends StatefulWidget {
   const AddRequestInputUser({super.key});
 
@@ -35,13 +37,13 @@ class _AddRequestInputUserState extends State<AddRequestInputUser> {
     return Dialog(
       child: Container(
         padding: EdgeInsets.all(15.w),
-       // margin: EdgeInsets.all(10.w),
+        // margin: EdgeInsets.all(10.w),
         height: 300.h,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.r),
             color: AppColors.whitColor),
         child: Column(
-         // mainAxisSize: MainAxisSize.min,
+          // mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomTextFormField(
@@ -54,25 +56,25 @@ class _AddRequestInputUserState extends State<AddRequestInputUser> {
               hint: 'address'.tr(),
             ),
             AppSizedBox.sizeBoxH10,
-           CustomTextFormField(
-             controller: TextEditingController(),
-             hint: 'phone'.tr(),
-           ),
-           AppSizedBox.sizeBoxH10,
-           CustomTextFormField(
-             readOnly: true,
-             controller: TextEditingController(),
-             hint: 'date'.tr(),
-             suffixIcon: GestureDetector(
-               onTap: () {
-                 _selectedDate(context);
-               },
-               child: const Icon(
-                 Icons.date_range,
-                 color: AppColors.primaryColor,
-               ),
-             ),
-           ),
+            CustomTextFormField(
+              controller: TextEditingController(),
+              hint: 'phone'.tr(),
+            ),
+            AppSizedBox.sizeBoxH10,
+            CustomTextFormField(
+              readOnly: true,
+              controller: TextEditingController(),
+              hint: 'date'.tr(),
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  _selectedDate(context);
+                },
+                child: const Icon(
+                  Icons.date_range,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+            ),
             AppSizedBox.sizeBoxH10,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -84,6 +86,11 @@ class _AddRequestInputUserState extends State<AddRequestInputUser> {
                   width: 100.w,
                   onTap: () {
                     /// upload data request user to data base and call the payment method
+                    Navigator.pop(context);
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => const AddRequestSuccess(),
+                    );
                   },
                 ),
                 CustomButtons.outLine(
@@ -93,7 +100,7 @@ class _AddRequestInputUserState extends State<AddRequestInputUser> {
                   color: AppColors.whitColor,
                   width: 100.w,
                   onTap: () {
-                   Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                 ),
               ],
