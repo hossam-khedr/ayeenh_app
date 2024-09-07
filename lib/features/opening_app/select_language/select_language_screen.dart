@@ -9,6 +9,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/utilities/app_colors.dart';
 import '../../../core/utilities/enums.dart';
@@ -79,7 +80,7 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
               AppSizedBox.sizeBoxH20,
               CustomButtons.normal(title: 'next'.tr(), onTap: (){
                 /// save app language in local and navigate to next screen
-                Navigator.pushReplacementNamed(context, RoutesName.onBoarding);
+                context.go( RoutesName.onBoarding);
               }),
               SizedBox(height: 250.h,)
             ],

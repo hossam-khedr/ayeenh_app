@@ -1,9 +1,9 @@
+import 'package:ayeenh/features/auth/auth_di.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utilities/app_statets.dart';
-import '../../../../core/utilities/di.dart';
 import '../../../../core/widgets/custom_buttons.dart';
 import '../logic/cubit.dart';
 import '../logic/states.dart';
@@ -13,7 +13,7 @@ class HandelRegisterState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = getIt<AuthCubit>();
+    final cubit = authDi<AuthCubit>();
     return BlocProvider.value(
       value: cubit,
       child: BlocListener<AuthCubit, AuthStates>(

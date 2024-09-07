@@ -4,6 +4,7 @@ import 'package:ayeenh/core/widgets/main_app_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/utilities/app_colors.dart';
 import '../../../core/utilities/app_routes.dart';
@@ -22,7 +23,8 @@ class _SplashScreenState extends State<SplashScreen> {
     _timer = Timer(const Duration(seconds: 3), _nextScreen);
   }
   _nextScreen(){
-    Navigator.pushReplacementNamed(context, RoutesName.selectLanguage);
+   // Navigator.pushReplacementNamed(context, RoutesName.selectLanguage);
+    context.go(RoutesName.selectLanguage);
   }
   @override
   void initState() {

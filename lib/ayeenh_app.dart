@@ -1,6 +1,5 @@
 import 'package:ayeenh/core/utilities/app_routes.dart';
 import 'package:ayeenh/core/utilities/app_styles.dart';
-import 'package:ayeenh/features/home.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +14,7 @@ class AyeenhApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context,child){
-        return  MaterialApp(
+        return  MaterialApp.router(
           debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: AppStyles.fontFamily,
@@ -23,8 +22,8 @@ class AyeenhApp extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        initialRoute: RoutesName.splash,
-         routes: AppRoutes.routes,
+       //initialRoute: RoutesName.splash,
+         routerConfig: AppRoutes.routes,
         );
       },
     );

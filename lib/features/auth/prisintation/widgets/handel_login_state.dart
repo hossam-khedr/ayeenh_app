@@ -1,11 +1,11 @@
 import 'package:ayeenh/core/utilities/app_routes.dart';
-import 'package:ayeenh/core/utilities/app_statets.dart';
-import 'package:ayeenh/core/utilities/di.dart';
+import 'package:ayeenh/features/auth/auth_di.dart';
 import 'package:ayeenh/features/auth/prisintation/logic/cubit.dart';
 import 'package:ayeenh/features/auth/prisintation/logic/states.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/widgets/custom_buttons.dart';
 
@@ -14,7 +14,7 @@ class HandelLoginState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = getIt<AuthCubit>();
+    final cubit = authDi<AuthCubit>();
     return BlocProvider.value(
       value: cubit,
       child: BlocListener<AuthCubit, AuthStates>(
@@ -37,7 +37,7 @@ class HandelLoginState extends StatelessWidget {
           title: 'login'.tr(),
           onTap: () {
            // cubit.login();
-            Navigator.pushReplacementNamed(context, RoutesName.home);
+            context.go(RoutesName.home);
           },
         ),
       ),

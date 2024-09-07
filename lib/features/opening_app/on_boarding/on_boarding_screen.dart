@@ -8,6 +8,7 @@ import 'package:ayeenh/features/opening_app/on_boarding/widgets/on_boarding_inde
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/widgets/custom_buttons.dart';
 
@@ -70,7 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
                 onTap: () {
                   if (pageNum == OnBoardingModel.getDataModel.length - 1) {
-                    Navigator.pushReplacementNamed(context, RoutesName.auth);
+                    context.go( RoutesName.auth);
                   } else {
                     pageNum++;
                     pageController.animateToPage(
@@ -82,7 +83,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 }),
             TextButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, RoutesName.auth);
+                context.go(RoutesName.auth);
               },
               child: Text('skip'.tr(),style: AppStyles.textButtonStyle(),),
             ),

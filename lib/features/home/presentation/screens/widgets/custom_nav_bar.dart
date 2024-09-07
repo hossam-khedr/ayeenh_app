@@ -21,7 +21,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
       width: 250.w,
       height: 60.h,
       decoration: BoxDecoration(
-        color: AppColors.navBarColor.withOpacity(0.4),
+        color: AppColors.primaryColor.withOpacity(0.3),
         borderRadius: BorderRadius.circular(25.r),
       ),
       child: Row(
