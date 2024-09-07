@@ -32,7 +32,7 @@ class _ItemInNavBarState extends State<ItemInNavBar> {
         decoration: BoxDecoration(
           //shape: BoxShape.circle,
           color: widget.isSelected
-              ? AppColors.primaryColor
+              ? AppColors.bluColor
               : Colors.transparent,
           borderRadius: BorderRadius.circular(20.r),
         ),
@@ -42,7 +42,7 @@ class _ItemInNavBarState extends State<ItemInNavBar> {
             Icon(
               widget.icon,
               color: widget.isSelected
-                  ? AppColors.darkGryColor
+                  ? AppColors.whitColor
                   : AppColors.gryColor,
             ),
             Text(
@@ -50,7 +50,7 @@ class _ItemInNavBarState extends State<ItemInNavBar> {
               style: AppStyles.subTitleStyle(
               ).copyWith(
                 color: widget.isSelected
-                    ? AppColors.darkGryColor
+                    ? AppColors.whitColor
                     : AppColors.gryColor,
               ),
             ),

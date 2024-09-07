@@ -16,7 +16,7 @@
   "address": "العنوان",
   "age": "العمر",
   "analysis": "التحاليل",
-  "add_request": "حجز موعد",
+  "add_request": "طلب موعد",
   "user_requests": "طلباتك",
   "settings": "إعدادات",
   "results": "النتائج",
@@ -25,5 +25,8 @@
   "sure":"تأكيد",
   "cancel": "إلغاء",
   "add_request_success_massage": "تم اضافة طلبك بنجاح",
-  "add_request_hint_massage": "سيتم دفع تكلفة التحليل عند الزياره"
+  "add_request_hint_massage": "سيتم دفع تكلفة التحليل عند الزياره",
+  "analysis_done": "تم الرد",
+  "analysis_inProgress": "قيد التنفيز",
+  "analysis_type": "نوع التحليل"
 }

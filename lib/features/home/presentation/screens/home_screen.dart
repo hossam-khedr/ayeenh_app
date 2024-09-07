@@ -5,8 +5,10 @@ import 'package:ayeenh/core/widgets/main_app_scaffold.dart';
 import 'package:ayeenh/features/home/presentation/screens/widgets/analysis_body.dart';
 import 'package:ayeenh/features/home/presentation/screens/widgets/custom_nav_bar.dart';
 import 'package:ayeenh/features/home/presentation/screens/widgets/item_in_nav_bar.dart';
+import 'package:ayeenh/features/home/presentation/screens/widgets/user_requests_body.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,24 +27,29 @@ class _HomeScreenState extends State<HomeScreen> {
       changeToolbarColor: true,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSized.horizontalPaddingConst,
+          padding: EdgeInsetsDirectional.only(
+            end: AppSized.horizontalPaddingConst,
+            start: AppSized.horizontalPaddingConst,
+            top: 15.h
           ),
           child: Column(
             children: [
               Expanded(
                 child: navBarItem == NavBarItem.home
-                    ? const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: AnalysisBody(),
-                    )
+                    ? Padding(
+                        padding: EdgeInsets.all(8.0.w),
+                        child: const AnalysisBody(),
+                      )
                     : navBarItem == NavBarItem.results
                         ? Center(child: Text('results'.tr()))
                         : navBarItem == NavBarItem.setting
-                            ? Center(child: Text('user_requests'.tr()))
+                            ? Padding(
+                                padding: EdgeInsets.all(8.0.w),
+                                child: const UserRequestsBody(),
+                              )
                             : const SizedBox.shrink(),
               ),
-             // const Spacer(),
+              // const Spacer(),
               // AppSizedBox.sizeBoxH20,
               CustomNavBar(
                 itemsInNavBar: [

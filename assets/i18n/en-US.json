@@ -24,5 +24,8 @@
   "date": "Date",
   "sure":"Sure",
   "add_request_success_massage": "Your request has been added successfully.",
-  "add_request_hint_massage": "The cost of the analysis will be paid upon visit."
+  "add_request_hint_massage": "The cost of the analysis will be paid upon visit.",
+  "analysis_done": "Reply",
+  "analysis_inProgress": "In progress",
+  "analysis_type": "Analysis type"
 }
