@@ -9,6 +9,6 @@ class SendUserRequestUseCase {
   SendUserRequestUseCase({required this.requestUserRepository});
 
   Future<Either<String, void>> call(RequestUser p) async {
-    return requestUserRepository.sendUserRequest(p);
+    return await requestUserRepository.sendUserRequest(p);
   }
 }

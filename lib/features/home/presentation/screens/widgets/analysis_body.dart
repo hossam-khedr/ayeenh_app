@@ -1,10 +1,5 @@
 import 'package:ayeenh/core/utilities/app_routes.dart';
-import 'package:ayeenh/core/utilities/app_sized.dart';
-import 'package:ayeenh/core/utilities/app_styles.dart';
-import 'package:ayeenh/core/utilities/svg_icons.dart';
-import 'package:ayeenh/core/widgets/custom_buttons.dart';
-import 'package:ayeenh/features/home/data/models/analysis_model.dart';
-import 'package:ayeenh/features/home/domain/entities/anlytics_category_model.dart';
+import 'package:ayeenh/core/utilities/app_states/full_screen_loading_state.dart';
 import 'package:ayeenh/features/home/presentation/logic/cubit.dart';
 import 'package:ayeenh/features/home/presentation/logic/state.dart';
 import 'package:flutter/material.dart';
@@ -33,23 +28,23 @@ class _AnalysisBodyState extends State<AnalysisBody> {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(
-          child: Container(
-              alignment: AlignmentDirectional.topCenter,
-              width: double.infinity,
-              height: 150.h,
-              decoration: BoxDecoration(
-                color: AppColors.whitColor,
-                borderRadius: BorderRadius.circular(AppSized.constantRadius),
-                // border: Border.all(color: AppColors.gryColor, width: 1.0),
-              ),
-              child: Image.asset(PngIcons.homeImage)),
-        ),
+        // SliverToBoxAdapter(
+        //   child: Container(
+        //       alignment: AlignmentDirectional.topCenter,
+        //       width: double.infinity,
+        //       height: 150.h,
+        //       decoration: BoxDecoration(
+        //         color: AppColors.whitColor,
+        //         borderRadius: BorderRadius.circular(AppSized.constantRadius),
+        //         // border: Border.all(color: AppColors.gryColor, width: 1.0),
+        //       ),
+        //       child: Image.asset(PngIcons.homeImage)),
+        // ),
         BlocBuilder<HomeCubit, HomeStates>(
           builder: (context, state) {
             if (state.isLoading) {
               return const SliverToBoxAdapter(
-                child: Center(child: CircularProgressIndicator()),
+                child: Center(child: FullScreenLoadingState()),
               );
             }
             if (state.isFailure) {

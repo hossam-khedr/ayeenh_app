@@ -10,6 +10,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/utilities/app_states/full_screen_empty_state.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -41,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: const AnalysisBody(),
                       )
                     : navBarItem == NavBarItem.results
-                        ? Center(child: Text('results'.tr()))
+                        ?  Center(child: FullScreenEmptyState(message: 'no_results_yet'.tr(),))
                         : navBarItem == NavBarItem.setting
                             ? Padding(
                                 padding: EdgeInsets.all(8.0.w),

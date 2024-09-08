@@ -28,5 +28,7 @@
   "add_request_hint_massage": "سيتم دفع تكلفة التحليل عند الزياره",
   "analysis_done": "تم الرد",
   "analysis_inProgress": "قيد التنفيز",
-  "analysis_type": "نوع التحليل"
+  "analysis_type": "نوع التحليل",
+  "no_requests_yet": "لا توجد طالبات حتي الان",
+  "no_results_yet": "لا توجد نتائج حتي الان"
 }

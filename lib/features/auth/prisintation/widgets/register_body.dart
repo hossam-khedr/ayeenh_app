@@ -7,7 +7,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utilities/app_statets.dart';
+import '../../../../core/utilities/app_states/pob_up_loading_state.dart';
 import 'handel_register_state.dart';
 
 class RegisterBody extends StatefulWidget {

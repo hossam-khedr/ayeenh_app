@@ -3,7 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utilities/app_statets.dart';
+import '../../../../core/utilities/app_states/pob_up_error_state.dart';
+import '../../../../core/utilities/app_states/pob_up_loading_state.dart';
 import '../../../../core/widgets/custom_buttons.dart';
 import '../logic/cubit.dart';
 import '../logic/states.dart';

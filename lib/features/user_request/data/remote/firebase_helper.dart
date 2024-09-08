@@ -7,7 +7,7 @@ import '../../../../core/utilities/firebase_collections.dart';
 class FirebaseHelperUserRequest implements RequestDataSource{
   @override
   Future<void> sendUserRequest(UserRequestModel model)async {
-    FirebaseCollections.userRequestCollection.add(model.toJson());
+   await FirebaseCollections.userRequestCollection.add(model.toJson());
   }
 
 }

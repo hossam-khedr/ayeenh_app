@@ -1,3 +1,5 @@
+import 'package:ayeenh/features/user_request/data/models/user_request_model.dart';
+
 import '../../data/models/analysis_model.dart';
 import '../../domain/entities/analysis_entity.dart';
 
@@ -22,21 +24,25 @@ class HomeStates {
   String? errorMassage;
   HomeStatus homeStatus;
   List<AnalysisModel> analysis;
+  List<UserRequestModel> requests;
 
-  HomeStates({
-    this.errorMassage,
-    this.homeStatus = HomeStatus.init,
-    this.analysis = const [],
-  });
+  HomeStates(
+      {this.errorMassage,
+      this.homeStatus = HomeStatus.init,
+      this.analysis = const [],
+      this.requests = const []});
 
-  HomeStates copyWith(
-      {String? errorMassage,
-      HomeStatus? homeStatus,
-      List<AnalysisModel>? analysis}) {
+  HomeStates copyWith({
+    String? errorMassage,
+    HomeStatus? homeStatus,
+    List<AnalysisModel>? analysis,
+    List<UserRequestModel>? requests,
+  }) {
     return HomeStates(
       errorMassage: errorMassage ?? this.errorMassage,
       homeStatus: homeStatus ?? this.homeStatus,
       analysis: analysis ?? this.analysis,
+      requests: requests ?? this.requests
     );
   }
 }

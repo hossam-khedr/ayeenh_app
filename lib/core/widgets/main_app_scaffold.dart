@@ -1,5 +1,7 @@
+import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utilities/app_colors.dart';
 
@@ -37,15 +39,21 @@ class _MainAppScaffoldState extends State<MainAppScaffold> {
   @override
   Widget build(BuildContext context) {
     AppBar appBar = AppBar(
-      title: Text(widget.appBarTitle ?? ''),
+      title: Text(
+        widget.appBarTitle ?? '',
+        style: AppStyles.titleStyle().copyWith(
+          fontSize: 16.sp
+        ),
+      ),
       centerTitle: widget.centerAppBarTitle,
       elevation: 0,
       backgroundColor: widget.appBarColor ?? AppColors.whitColor,
     );
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        statusBarColor:
-            widget.changeToolbarColor ? AppColors.primaryColor : AppColors.whitColor,
+        statusBarColor: widget.changeToolbarColor
+            ? AppColors.primaryColor
+            : AppColors.whitColor,
         statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark,
       ),

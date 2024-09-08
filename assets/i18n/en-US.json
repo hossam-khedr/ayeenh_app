@@ -27,5 +27,7 @@
   "add_request_hint_massage": "The cost of the analysis will be paid upon visit.",
   "analysis_done": "Reply",
   "analysis_inProgress": "In progress",
-  "analysis_type": "Analysis type"
+  "analysis_type": "Analysis type",
+  "no_requests_yet": "There are no requests yet.",
+  "no_results_yet": "There are no results yet."
 }

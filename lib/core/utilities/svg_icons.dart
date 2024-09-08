@@ -3,6 +3,7 @@ abstract class SvgIcons{
 static const String appLogoIcon = '${iconPath}app_logo.svg';
 static const String egIcon = '${iconPath}EG.svg';
 static const String usIcon = '${iconPath}US.svg';
+static const String emptyIcon = '${iconPath}empty_icon.svg';
 }
 
 abstract class PngIcons{

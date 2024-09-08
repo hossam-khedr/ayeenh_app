@@ -3,6 +3,7 @@ import 'package:ayeenh/features/home/data/data_source/remote/firebase_helper.dar
 import 'package:ayeenh/features/home/data/repo_impl/home_repo_impl.dart';
 import 'package:ayeenh/features/home/domain/repo/home_repo.dart';
 import 'package:ayeenh/features/home/domain/usecase/get_all_analysis_use_case.dart';
+import 'package:ayeenh/features/home/domain/usecase/get_all_requests_use_case.dart';
 import 'package:ayeenh/features/home/presentation/logic/cubit.dart';
 import 'package:get_it/get_it.dart';
 
@@ -22,9 +23,15 @@ Future<void> initHomeModule() async {
       homeRepo: homeDi(),
     ),
   );
+  homeDi.registerLazySingleton<GetAllRequestsUseCase>(
+        () => GetAllRequestsUseCase(
+      homeRepo: homeDi(),
+    ),
+  );
   homeDi.registerLazySingleton<HomeCubit>(
     () => HomeCubit(
       getAllAnalysisUseCase: homeDi(),
+      getAllRequestsUseCase: homeDi(),
     ),
   );
 }
