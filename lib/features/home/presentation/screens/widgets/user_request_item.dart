@@ -1,12 +1,13 @@
 import 'package:ayeenh/core/utilities/app_colors.dart';
 import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:ayeenh/features/home/domain/entities/request_model.dart';
+import 'package:ayeenh/features/user_request/data/models/user_request_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserRequestItem extends StatefulWidget {
-  final RequestModel userRequestModel;
+  final UserRequestModel userRequestModel;
 
   const UserRequestItem({super.key, required this.userRequestModel});
 
@@ -33,7 +34,7 @@ class _UserRequestItemState extends State<UserRequestItem> {
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  widget.userRequestModel.name,
+                  widget.userRequestModel.userName,
                   style: AppStyles.titleStyle().copyWith(
                     fontSize: 18.sp,
                     decoration: widget.userRequestModel.isStatus

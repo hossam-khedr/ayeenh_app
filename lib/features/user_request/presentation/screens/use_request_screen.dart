@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utilities/app_colors.dart';
+import '../../../../core/utilities/helper_functions.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/main_app_scaffold.dart';
 import '../../../home/domain/entities/anlytics_category_model.dart';
@@ -35,7 +36,6 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
   TextEditingController phone = TextEditingController();
   TextEditingController date = TextEditingController();
   DateTime selectedDate = DateTime.now();
-
   Future<void> _selectedDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -52,6 +52,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var formatDateTime = selectedDate.toString().split('/');
     return MainAppScaffold(
       shooAppBar: true,
       changeToolbarColor: true,
@@ -90,7 +91,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                   },
                   child: const Icon(
                     Icons.date_range,
-                    color: AppColors.primaryColor,
+                    color: AppColors.bluColor,
                   ),
                 ),
               ),
@@ -101,14 +102,14 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                 requestUser: RequestUser(
                   userName: name.text,
                   analysisType: widget.model.name,
-                  dateTime: selectedDate.toIso8601String(),
+                  dateTime: HelperFunctions.formatDateTime(selectedDate),
                   isStatus: false,
                   address: address.text,
                 ),
               ),
               AppSizedBox.sizeBoxH10,
               CustomButtons.outLine(
-                icon: Icons.cancel,
+               // icon: Icons.cancel,
                 iconColor: AppColors.favorite,
                 title: 'cancel'.tr(),
                 color: AppColors.whitColor,
