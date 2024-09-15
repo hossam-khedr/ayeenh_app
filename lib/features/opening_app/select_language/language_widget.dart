@@ -31,12 +31,12 @@ class _LanguageWidgetState extends State<LanguageWidget> {
         height: 100.h,
         decoration: BoxDecoration(
           color: widget.isSelected
-              ? AppColors.primaryColor.withOpacity(0.3)
+              ? AppColors.bluColor.withOpacity(0.2)
               : AppColors.whitColor,
           borderRadius: BorderRadius.circular(10.r),
           border: Border.all(
             color:
-                widget.isSelected ? AppColors.primaryColor : AppColors.gryColor,
+                widget.isSelected ? AppColors.bluColor : AppColors.gryColor,
             width: widget.isSelected ? 2 : 1,
           ),
         ),
@@ -51,7 +51,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
               widget.title,
               style: AppStyles.darkGry16W600().copyWith(
                 color: widget.isSelected
-                    ? AppColors.primaryColor
+                    ? AppColors.bluColor
                     : AppColors.gryColor,
               ),
             ),

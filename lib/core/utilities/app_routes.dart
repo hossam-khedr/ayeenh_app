@@ -1,3 +1,4 @@
+import 'package:ayeenh/features/app_utils/presentation/screens/settings_screen.dart';
 import 'package:ayeenh/features/auth/auth_di.dart';
 import 'package:ayeenh/features/auth/prisintation/logic/cubit.dart';
 import 'package:ayeenh/features/auth/prisintation/screens/auth_screen.dart';
@@ -31,6 +32,10 @@ abstract class AppRoutes {
       builder: (context, state) => const OnBoardingScreen(),
     ),
     GoRoute(
+      path: RoutesName.settings,
+      builder: (context, state) => const SettingsScreen(),
+    ),
+    GoRoute(
       path: RoutesName.auth,
       builder: (context, state) => BlocProvider(
         create: (context) => authDi<AuthCubit>(),
@@ -56,17 +61,7 @@ abstract class AppRoutes {
         }),
   ]);
 
-  // static final Map<String, WidgetBuilder> _routes = {
-  //   RoutesName.splash: (context) => const SplashScreen(),
-  //   RoutesName.selectLanguage: (context) => const SelectLanguageScreen(),
-  //   RoutesName.onBoarding: (context) => const OnBoardingScreen(),
-  //   RoutesName.auth: (context) => BlocProvider(
-  //         create: (context) => getIt<AuthCubit>(),
-  //         child: const AuthScreen(),
-  //       ),
-  //   RoutesName.home: (context) => const HomeScreen(),
-  //   RoutesName.detailsCategory: (context) => const DetailsCategoryScreen(),
-  // };
+
 
   static GoRouter get routes => _goRoute;
 }
@@ -79,4 +74,5 @@ abstract class RoutesName {
   static const login = '/login';
   static const home = '/home';
   static const userRequest = '/userRequest';
+  static const settings = '/settings';
 }

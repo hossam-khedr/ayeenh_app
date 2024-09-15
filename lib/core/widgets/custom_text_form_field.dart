@@ -1,6 +1,6 @@
 import 'package:ayeenh/core/utilities/app_sized.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 import '../utilities/app_colors.dart';
 import '../utilities/app_styles.dart';
@@ -23,6 +23,7 @@ class CustomTextFormField extends StatefulWidget {
   bool obscureText;
   bool isPass;
   final Function()? onEditingComplete;
+  final void Function(String)? onChanged;
 
   CustomTextFormField({
     super.key,
@@ -41,7 +42,7 @@ class CustomTextFormField extends StatefulWidget {
     this.isPass = false,
     this.readOnly = false,
     this.maxLines,
-    this.onEditingComplete, this.backGroundColor,
+    this.onEditingComplete, this.backGroundColor, this.onChanged,
   });
 
   @override
@@ -82,7 +83,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               Icon(
                 widget.iconData,
                 color:
-                widget.iconColor ?? AppColors.primaryColor,
+                widget.iconColor ?? AppColors.bluColor,
               ),
               Padding(
                 padding:
@@ -90,7 +91,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 child: VerticalDivider(
                     thickness: 2,
                     color: widget.iconColor ??
-                        AppColors.primaryColor),
+                        AppColors.bluColor),
               ),
             ],
           ),
@@ -103,7 +104,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 _visiblePassword
                     ? Icons.visibility
                     : Icons.visibility_off,
-                color: AppColors.primaryColor,
+                color: AppColors.bluColor,
                 size: 17,
               ),
               onTap: () {
@@ -129,7 +130,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppSized.constantRadius),
             borderSide: const BorderSide(
-              color: AppColors.primaryColor,
+              color: AppColors.bluColor,
               width: 1.5,
             )
         ),
@@ -140,6 +141,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       autofillHints: widget.autofillHints,
       keyboardType: widget.keyboardType ?? TextInputType.text,
       onSaved: widget.onSaved as void Function(String?)?,
+      onChanged:widget.onChanged ,
       validator: widget.validator as String? Function(String?)?,
       obscureText: widget.obscureText,
     );
