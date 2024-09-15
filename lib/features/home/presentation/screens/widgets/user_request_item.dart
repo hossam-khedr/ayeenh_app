@@ -1,4 +1,5 @@
 import 'package:ayeenh/core/utilities/app_colors.dart';
+import 'package:ayeenh/core/utilities/app_sized_box.dart';
 import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:ayeenh/features/home/domain/entities/request_model.dart';
 import 'package:ayeenh/features/user_request/data/models/user_request_model.dart';
@@ -33,15 +34,7 @@ class _UserRequestItemState extends State<UserRequestItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  widget.userRequestModel.userName,
-                  style: AppStyles.titleStyle().copyWith(
-                    fontSize: 18.sp,
-                    decoration: widget.userRequestModel.isStatus
-                        ? TextDecoration.lineThrough
-                        : TextDecoration.none,
-                  ),
-                ),
+                AppSizedBox.sizeBoxH20,
                 Text(
                   widget.userRequestModel.dateTime,
                   style: AppStyles.titleStyle().copyWith(

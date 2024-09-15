@@ -4,6 +4,10 @@ static const String appLogoIcon = '${iconPath}app_logo.svg';
 static const String egIcon = '${iconPath}EG.svg';
 static const String usIcon = '${iconPath}US.svg';
 static const String emptyIcon = '${iconPath}empty_icon.svg';
+static const String profileIcon = '${iconPath}profile_icon.svg';
+static const String globalIcon = '${iconPath}global.svg';
+static const String themeIcon = '${iconPath}theme.svg';
+static const String notificationIcon = '${iconPath}notification.svg';
 }
 
 abstract class PngIcons{

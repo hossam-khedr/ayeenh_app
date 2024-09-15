@@ -1,13 +1,11 @@
 import 'package:ayeenh/core/utilities/app_sized.dart';
 import 'package:ayeenh/core/utilities/app_sized_box.dart';
-import 'package:ayeenh/core/utilities/app_styles.dart';
+
 import 'package:ayeenh/core/widgets/custom_buttons.dart';
 import 'package:ayeenh/features/home/data/models/analysis_model.dart';
-import 'package:ayeenh/features/home/presentation/screens/widgets/add_request_inpu_user.dart';
-import 'package:ayeenh/features/home/presentation/screens/widgets/add_request_success.dart';
+
 import 'package:ayeenh/features/user_request/domain/entities/request_uesr.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,7 +13,6 @@ import '../../../../core/utilities/app_colors.dart';
 import '../../../../core/utilities/helper_functions.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/main_app_scaffold.dart';
-import '../../../home/domain/entities/anlytics_category_model.dart';
 import '../widgets/send_user_request.dart';
 
 class UserRequestScreen extends StatefulWidget {
@@ -52,7 +49,6 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var formatDateTime = selectedDate.toString().split('/');
     return MainAppScaffold(
       shooAppBar: true,
       changeToolbarColor: true,

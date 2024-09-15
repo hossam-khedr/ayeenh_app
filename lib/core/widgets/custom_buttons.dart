@@ -24,7 +24,7 @@ abstract class CustomButtons{
         height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppSized.constantRadius),
-          color: color ?? AppColors.primaryColor,
+          color: color ?? AppColors.bluColor,
           border: Border.all(
             color: AppColors.darkGryColor,
             width: 1

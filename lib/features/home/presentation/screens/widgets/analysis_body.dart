@@ -1,7 +1,10 @@
 import 'package:ayeenh/core/utilities/app_routes.dart';
+import 'package:ayeenh/core/utilities/app_states/full_screen_empty_state.dart';
 import 'package:ayeenh/core/utilities/app_states/full_screen_loading_state.dart';
+import 'package:ayeenh/core/widgets/custom_text_form_field.dart';
 import 'package:ayeenh/features/home/presentation/logic/cubit.dart';
 import 'package:ayeenh/features/home/presentation/logic/state.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +21,8 @@ class AnalysisBody extends StatefulWidget {
 }
 
 class _AnalysisBodyState extends State<AnalysisBody> {
+  TextEditingController searchController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -28,18 +33,21 @@ class _AnalysisBodyState extends State<AnalysisBody> {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        // SliverToBoxAdapter(
-        //   child: Container(
-        //       alignment: AlignmentDirectional.topCenter,
-        //       width: double.infinity,
-        //       height: 150.h,
-        //       decoration: BoxDecoration(
-        //         color: AppColors.whitColor,
-        //         borderRadius: BorderRadius.circular(AppSized.constantRadius),
-        //         // border: Border.all(color: AppColors.gryColor, width: 1.0),
-        //       ),
-        //       child: Image.asset(PngIcons.homeImage)),
-        // ),
+        SliverToBoxAdapter(
+          child: CustomTextFormField(
+            controller: searchController,
+            hint: 'search'.tr(),
+            iconWidget: const Icon(
+              Icons.search,
+              color: AppColors.bluColor,
+            ),
+            onChanged: (value) {
+              // searchController.text = value;
+              context.read<HomeCubit>().searchOnAnalysis(searchController.text);
+              // print(searchController.text);
+            },
+          ),
+        ),
         BlocBuilder<HomeCubit, HomeStates>(
           builder: (context, state) {
             if (state.isLoading) {
@@ -53,6 +61,11 @@ class _AnalysisBodyState extends State<AnalysisBody> {
               );
             }
             if (state.isSuccess) {
+              if(state.analysis.isEmpty){
+                return const SliverToBoxAdapter(
+                  child: FullScreenEmptyState(message:'list_is_empty' ,),
+                );
+              }
               return SliverGrid(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -60,11 +73,12 @@ class _AnalysisBodyState extends State<AnalysisBody> {
                   mainAxisSpacing: 5.0,
                 ),
                 delegate: SliverChildBuilderDelegate(
-                  childCount: state.analysis.length,
+                  childCount: searchController.text.isEmpty
+                      ? state.analysis.length
+                      : state.filterAnalysis.length,
                   (context, index) => Container(
                       alignment: AlignmentDirectional.center,
-                      padding:
-                          EdgeInsetsDirectional.symmetric(horizontal: 5.w),
+                      padding: EdgeInsetsDirectional.symmetric(horizontal: 5.w),
                       margin: EdgeInsets.symmetric(vertical: 8.h),
                       //  width: double.infinity,
                       //height: 70.h,
@@ -74,17 +88,25 @@ class _AnalysisBodyState extends State<AnalysisBody> {
                               color: AppColors.primaryColor, width: 0.5),
                           borderRadius: BorderRadius.circular(10.r)),
                       child: AnalysisItem(
-                        analysisCount: state.analysis[index].analysisCount,
-                        analysisName: state.analysis[index].name ,
-                        analysisPrise: state.analysis[index].analysisPrise,
-                        onTap: (){
+                        analysisCount: searchController.text.isEmpty
+                            ? state.analysis[index].analysisCount
+                            : state.filterAnalysis[index].analysisCount,
+                        analysisName: searchController.text.isEmpty
+                            ? state.analysis[index].name
+                            : state.filterAnalysis[index].name,
+                        analysisPrise: searchController.text.isEmpty
+                            ? state.analysis[index].analysisPrise
+                            : state.filterAnalysis[index].analysisPrise,
+                        onTap: () {
                           context.push(
                             // "detailsCategory",
-                              RoutesName.userRequest,
-                              extra: state.analysis[index]);
+                            RoutesName.userRequest,
+                            extra: searchController.text.isEmpty
+                                ? state.analysis[index]
+                                : state.filterAnalysis[index],
+                          );
                         },
-                      )
-                     ),
+                      )),
                 ),
               );
             } else {

@@ -27,11 +27,11 @@ class _LoginOrRegisterState extends State<LoginOrRegister> {
       height: 55.h,
       decoration: BoxDecoration(
         color:widget. authType == AuthType.register
-            ? AppColors.primaryColor.withOpacity(0.3)
+            ? AppColors.bluColor.withOpacity(0.2)
             : AppColors.whitColor,
         borderRadius: BorderRadius.circular(AppSized.constantRadius),
         border: Border.all(
-          color: AppColors.primaryColor,
+          color: AppColors.bluColor,
           width: 1,
         ),
       ),

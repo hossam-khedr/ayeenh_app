@@ -30,5 +30,12 @@
   "analysis_inProgress": "قيد التنفيز",
   "analysis_type": "نوع التحليل",
   "no_requests_yet": "لا توجد طالبات حتي الان",
-  "no_results_yet": "لا توجد نتائج حتي الان"
+  "no_results_yet": "لا توجد نتائج حتي الان",
+  "edit_profile": "تعديل الملف الشخصي",
+  "change_theme": "تغير الوضع",
+  "language": "اللغه",
+  "notification": "الاشعارات",
+  "search": "بحث في قائمة التحاليل",
+"no_analysis_results": "لاتوجد نتائج لعرضها",
+  "list_is_empty": "القاتمه فارغه"
 }

@@ -22,10 +22,10 @@ class _OnBoardingIndicatorState extends State<OnBoardingIndicator> {
           width: 40.w,
           height: 10.h,
           decoration: BoxDecoration(
-            color:widget.pageNum ==i? AppColors.whitColor:AppColors.primaryColor,
+            color:widget.pageNum ==i? AppColors.whitColor:AppColors.bluColor,
             borderRadius: BorderRadius.circular(10.r),
             border: Border.all(
-              color:widget.pageNum ==i? AppColors.primaryColor:AppColors.whitColor,
+              color:widget.pageNum ==i? AppColors.bluColor:AppColors.whitColor,
               width:widget.pageNum ==i?2:1
             ),
           ),

@@ -57,7 +57,7 @@ class _AnalysisItemState extends State<AnalysisItem> {
             child: Text(
               'add_request'.tr(),
               style: AppStyles.subTitleStyle().copyWith(
-                color: AppColors.darkGryColor
+                color: AppColors.whitColor
               ),
             ),
           ),

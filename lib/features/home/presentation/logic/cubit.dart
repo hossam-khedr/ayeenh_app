@@ -1,4 +1,5 @@
 import 'package:ayeenh/features/home/data/models/analysis_model.dart';
+import 'package:ayeenh/features/home/domain/entities/analysis_entity.dart';
 import 'package:ayeenh/features/home/domain/usecase/get_all_requests_use_case.dart';
 import 'package:ayeenh/features/home/presentation/logic/state.dart';
 import 'package:ayeenh/features/user_request/data/models/user_request_model.dart';
@@ -15,6 +16,8 @@ class HomeCubit extends Cubit<HomeStates> {
     required this.getAllAnalysisUseCase,
     required this.getAllRequestsUseCase,
   }) : super(HomeStates());
+
+  // List<AnalysisModel>analysisSearch = [];
 
   Future<void> getAllAnalysis() async {
     debugPrint('START: cubit getAllAnalysis');
@@ -41,16 +44,33 @@ class HomeCubit extends Cubit<HomeStates> {
       },
     );
   }
-  Future<void>getRequests()async{
+
+  Future<void> getRequests() async {
     debugPrint('START: cubit getAllRequests');
-    List<UserRequestModel>requestsList = state.requests.toList();
+    List<UserRequestModel> requestsList = state.requests.toList();
     emit(state.copyWith(homeStatus: HomeStatus.loading));
-    (await getAllRequestsUseCase.call()).fold((failure){
-      emit(state.copyWith(homeStatus: HomeStatus.failure,errorMassage: failure));
-    }, (requests){
-      requestsList =requests;
-      emit(state.copyWith(homeStatus: HomeStatus.success,requests: requests));
+    (await getAllRequestsUseCase.call()).fold((failure) {
+      emit(state.copyWith(
+          homeStatus: HomeStatus.failure, errorMassage: failure));
+    }, (requests) {
+      requestsList = requests;
+      emit(state.copyWith(homeStatus: HomeStatus.success, requests: requests));
     });
     debugPrint('END: cubit getAllRequests');
+  }
+
+  void searchOnAnalysis(String value) {
+    final allAnalysis = state.analysis.toList();
+    state.filterAnalysis = allAnalysis
+        .where((element) =>
+            element.name.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+    print("Filtered Analysis Count: ${state.filterAnalysis.length}");
+    emit(
+      state.copyWith(
+        homeStatus: HomeStatus.success,
+        filterAnalysis: state.filterAnalysis,
+      ),
+    );
   }
 }

@@ -28,7 +28,7 @@ class _AuthWidgetState extends State<AuthWidget> {
         height: 40.h,
         decoration: BoxDecoration(
           color:
-              widget.isSelected ? AppColors.primaryColor : AppColors.whitColor,
+              widget.isSelected ? AppColors.bluColor : AppColors.whitColor,
           borderRadius: BorderRadius.circular(AppSized.constantRadius),
           border: Border.all(
             color:AppColors.darkGryColor,

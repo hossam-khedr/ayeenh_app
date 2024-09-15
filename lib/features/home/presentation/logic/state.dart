@@ -8,6 +8,8 @@ enum HomeStatus {
   loading,
   success,
   failure,
+  searchLoading,
+  searchSuccess,
 }
 
 extension HomeStateEnum on HomeStates {
@@ -18,31 +20,39 @@ extension HomeStateEnum on HomeStates {
   bool get isFailure => homeStatus == HomeStatus.failure;
 
   bool get isSuccess => homeStatus == HomeStatus.success;
+
+  bool get isSearchSuccess => homeStatus == HomeStatus.searchSuccess;
+
+  bool get isSearchLoading => homeStatus == HomeStatus.searchLoading;
 }
 
 class HomeStates {
   String? errorMassage;
   HomeStatus homeStatus;
   List<AnalysisModel> analysis;
+  List<AnalysisModel> filterAnalysis;
   List<UserRequestModel> requests;
 
-  HomeStates(
-      {this.errorMassage,
-      this.homeStatus = HomeStatus.init,
-      this.analysis = const [],
-      this.requests = const []});
+  HomeStates({
+    this.errorMassage,
+    this.homeStatus = HomeStatus.init,
+    this.analysis = const [],
+    this.requests = const [],
+    this.filterAnalysis = const[],
+  });
 
   HomeStates copyWith({
     String? errorMassage,
     HomeStatus? homeStatus,
     List<AnalysisModel>? analysis,
+    List<AnalysisModel>? filterAnalysis,
     List<UserRequestModel>? requests,
   }) {
     return HomeStates(
-      errorMassage: errorMassage ?? this.errorMassage,
-      homeStatus: homeStatus ?? this.homeStatus,
-      analysis: analysis ?? this.analysis,
-      requests: requests ?? this.requests
-    );
+        errorMassage: errorMassage ?? this.errorMassage,
+        homeStatus: homeStatus ?? this.homeStatus,
+        analysis: analysis ?? this.analysis,
+        filterAnalysis: filterAnalysis ?? this.filterAnalysis,
+        requests: requests ?? this.requests);
   }
 }

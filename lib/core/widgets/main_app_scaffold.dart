@@ -9,6 +9,7 @@ class MainAppScaffold extends StatefulWidget {
   final Widget body;
   final Widget? floatingActionButton;
   final bool shooAppBar;
+  final List<Widget>? actions;
   final String? appBarTitle;
   final Color? scaffoldColor;
   final Color? appBarColor;
@@ -28,7 +29,7 @@ class MainAppScaffold extends StatefulWidget {
     this.shooBackIcon = true,
     this.bottomNavigationBar,
     this.changeToolbarColor = false,
-    this.appBarColor,
+    this.appBarColor, this.actions,
   });
 
   @override
@@ -48,6 +49,7 @@ class _MainAppScaffoldState extends State<MainAppScaffold> {
       centerTitle: widget.centerAppBarTitle,
       elevation: 0,
       backgroundColor: widget.appBarColor ?? AppColors.whitColor,
+      actions:widget.actions?? [],
     );
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(

@@ -45,15 +45,22 @@ class _ItemInNavBarState extends State<ItemInNavBar> {
                   ? AppColors.whitColor
                   : AppColors.gryColor,
             ),
-            Text(
+           Divider(
+             height: 20,
+             endIndent: 5,
+             indent: 5,
+             color: widget.isSelected?AppColors.whitColor:Colors.transparent,
+           )
+           /* Text(
               widget.label,
               style: AppStyles.subTitleStyle(
               ).copyWith(
                 color: widget.isSelected
                     ? AppColors.whitColor
                     : AppColors.gryColor,
+                fontSize: 10.sp
               ),
-            ),
+            ),*/
           ],
         )
       ),
