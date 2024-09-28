@@ -37,5 +37,7 @@
   "notification": "الاشعارات",
   "search": "بحث في قائمة التحاليل",
 "no_analysis_results": "لاتوجد نتائج لعرضها",
-  "list_is_empty": "القاتمه فارغه"
+  "list_is_empty": "القاتمه فارغه",
+  "logout": "تسجيل خروج",
+  "please_fill_in_the_data": "من فضلك املأ البيانات"
 }

@@ -22,34 +22,20 @@ class _LoginOrRegisterState extends State<LoginOrRegister> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 55.h,
-      decoration: BoxDecoration(
-        color:widget. authType == AuthType.register
-            ? AppColors.bluColor.withOpacity(0.2)
-            : AppColors.whitColor,
-        borderRadius: BorderRadius.circular(AppSized.constantRadius),
-        border: Border.all(
-          color: AppColors.bluColor,
-          width: 1,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        AuthWidget(
+          isSelected:widget. authType == AuthType.login ? true : false,
+          onTap:widget.loginOnTap,
+          title: 'login'.tr(),
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          AuthWidget(
-            isSelected:widget. authType == AuthType.login ? true : false,
-            onTap:widget.loginOnTap,
-            title: 'login'.tr(),
-          ),
-          AuthWidget(
-            isSelected:widget. authType == AuthType.register ? true : false,
-            onTap: widget.registerOnTap,
-            title: 'register'.tr(),
-          ),
-        ],
-      ),
+        AuthWidget(
+          isSelected:widget. authType == AuthType.register ? true : false,
+          onTap: widget.registerOnTap,
+          title: 'register'.tr(),
+        ),
+      ],
     );
   }
 }

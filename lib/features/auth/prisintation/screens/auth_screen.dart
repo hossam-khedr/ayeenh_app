@@ -7,6 +7,7 @@ import 'package:ayeenh/core/widgets/main_app_scaffold.dart';
 import 'package:ayeenh/features/auth/prisintation/widgets/login_body.dart';
 import 'package:ayeenh/features/auth/prisintation/widgets/register_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/login_or_register.dart';
@@ -37,9 +38,10 @@ class _AuthScreenState extends State<AuthScreen> {
                 alignment: AlignmentDirectional.topCenter,
                 child: SvgPicture.asset(
                   SvgIcons.appLogoIcon,
-                  color: AppColors.primaryColor,
+                  color: AppColors.bluColor,
+                  height: 100.h,
                 )),
-            AppSizedBox.sizeBoxH20,
+            AppSizedBox.sizeBoxH40,
             LoginOrRegister(
               authType: authType,
               loginOnTap: () {

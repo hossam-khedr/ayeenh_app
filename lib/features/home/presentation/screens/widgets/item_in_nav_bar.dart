@@ -32,7 +32,7 @@ class _ItemInNavBarState extends State<ItemInNavBar> {
         decoration: BoxDecoration(
           //shape: BoxShape.circle,
           color: widget.isSelected
-              ? AppColors.bluColor
+              ? AppColors.warning
               : Colors.transparent,
           borderRadius: BorderRadius.circular(20.r),
         ),

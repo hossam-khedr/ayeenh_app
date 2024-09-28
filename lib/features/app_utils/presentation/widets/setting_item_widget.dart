@@ -1,4 +1,5 @@
 import 'package:ayeenh/core/utilities/app_colors.dart';
+import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:ayeenh/core/utilities/svg_icons.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,34 @@ class _SettingItemWidgetState extends State<SettingItemWidget> {
         widget.iconPath,
         color: AppColors.bluColor,
       ),
-      title: Text(widget.title.tr()),
+      title: Text(
+        widget.title.tr(),
+        style: AppStyles.subTitleStyle().copyWith(color: AppColors.bluColor),
+      ),
+      trailing: const Icon(
+        Icons.arrow_forward_rounded,
+        color: AppColors.bluColor,
+      ),
+    );
+  }
+}
+
+class TestLogOutWidget extends StatelessWidget {
+  const TestLogOutWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const Icon(
+        Icons.logout_outlined,
+        color: AppColors.bluColor,
+      ),
+      title: Text(
+        'logout'.tr(),
+        style: AppStyles.subTitleStyle().copyWith(
+          color: AppColors.bluColor,
+        ),
+      ),
       trailing: const Icon(
         Icons.arrow_forward_rounded,
         color: AppColors.bluColor,
