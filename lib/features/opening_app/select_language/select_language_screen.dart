@@ -40,7 +40,8 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                 alignment: AlignmentDirectional.topCenter,
                 child: SvgPicture.asset(
                   SvgIcons.appLogoIcon,
-                  color: AppColors.primaryColor,
+                  color: AppColors.bluColor,
+                  height: 70.h,
                 ),
               ),
               const Spacer(),
@@ -79,7 +80,7 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
               ),
               AppSizedBox.sizeBoxH20,
               CustomButtons.normal(title: 'next'.tr(), onTap: (){
-                /// save app language in local and navigate to next screen
+                //todo save app language in local and navigate to next screen
                 context.go( RoutesName.onBoarding);
               }),
               SizedBox(height: 250.h,)

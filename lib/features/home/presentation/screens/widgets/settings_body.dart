@@ -22,43 +22,33 @@ class _SettingsBodyState extends State<SettingsBody> {
       children: [
         const ProfileWidget(),
         AppSizedBox.sizeBoxH20,
-        Expanded(
-          child: Container(
-            width: double.infinity,
-           // height: 300.h,
-            decoration: BoxDecoration(
-                color: AppColors.bluColor.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(20.r)),
-            child: ListView(
-              children: [
-                SettingItemWidget(
-                  onTap: (){},
-                  title: 'change_theme',
-                  iconPath: SvgIcons.themeIcon,
-                ),
-                SettingItemWidget(
-                  onTap: (){},
-                  title: 'language',
-                  iconPath: SvgIcons.globalIcon,
-                ),
-                SettingItemWidget(
-                  onTap: (){},
-                  title: 'notification',
-                  iconPath: SvgIcons.notificationIcon,
-                ),
-              ],
-            ),
+        Container(
+          width: double.infinity,
+          height: 300.h,
+          decoration: BoxDecoration(
+              color: AppColors.bluColor.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(20.r)),
+          child: ListView(
+            children: [
+              SettingItemWidget(
+                onTap: (){},
+                title: 'change_theme',
+                iconPath: SvgIcons.themeIcon,
+              ),
+              SettingItemWidget(
+                onTap: (){},
+                title: 'language',
+                iconPath: SvgIcons.globalIcon,
+              ),
+              SettingItemWidget(
+                onTap: (){},
+                title: 'notification',
+                iconPath: SvgIcons.notificationIcon,
+              ),
+              const TestLogOutWidget()
+            ],
           ),
         ),
-        AppSizedBox.sizeBoxH20,
-        TextButton(
-          onPressed: () {},
-          child: Text(
-            'Logout',
-            style: AppStyles.titleStyle()
-                .copyWith(color: AppColors.bluColor, fontSize: 16.sp),
-          ),
-        )
       ],
     );
   }

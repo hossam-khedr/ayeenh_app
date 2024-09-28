@@ -22,45 +22,46 @@ class _LoginBodyState extends State<LoginBody> {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<AuthCubit>();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'welcome_back'.tr(),
-          style: AppStyles.titleStyle(),
+    return Center(
+      child: Container(
+        padding: EdgeInsets.all(20.w),
+        width: double.infinity,
+        height: 250.h,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.r),
+          color: AppColors.bluColor.withOpacity(0.2)
         ),
-        Text(
-          'you_login_from_new'.tr(),
-          style: AppStyles.subTitleStyle(),
-        ),
-        AppSizedBox.sizeBoxH20,
-        CustomTextFormField(
-          controller: cubit.loginEmailController,
-          hint: 'email'.tr(),
-        ),
-        AppSizedBox.sizeBoxH20,
-        CustomTextFormField(
-          isPass: true,
-          controller: cubit.loginPasswordController,
-          hint: 'password'.tr(),
-        ),
-        AppSizedBox.sizeBoxH20,
-        Align(
-          alignment: AlignmentDirectional.centerEnd,
-          child: TextButton(
-            child: Text(
-              'forgot_password'.tr(),
-              style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.favorite),
+        child: Column(
+          children: [
+            CustomTextFormField(
+              controller: cubit.loginEmailController,
+              hint: 'email'.tr(),
             ),
-            onPressed: () {},
-          ),
+            AppSizedBox.sizeBoxH10,
+            CustomTextFormField(
+              isPass: true,
+              controller: cubit.loginPasswordController,
+              hint: 'password'.tr(),
+            ),
+            AppSizedBox.sizeBoxH10,
+            Align(
+              alignment: AlignmentDirectional.centerEnd,
+              child: TextButton(
+                child: Text(
+                  'forgot_password'.tr(),
+                  style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.darkGryColor),
+                ),
+                onPressed: () {},
+              ),
+            ),
+            AppSizedBox.sizeBoxH10,
+            const HandelLoginState(),
+          ],
         ),
-        AppSizedBox.sizeBoxH20,
-        const HandelLoginState(),
-      ],
+      ),
     );
   }
 }

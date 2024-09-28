@@ -1,7 +1,7 @@
 import 'package:ayeenh/core/utilities/app_sized.dart';
 import 'package:ayeenh/core/utilities/app_sized_box.dart';
+import 'package:ayeenh/core/utilities/app_styles.dart';
 
-import 'package:ayeenh/core/widgets/custom_buttons.dart';
 import 'package:ayeenh/features/home/data/models/analysis_model.dart';
 
 import 'package:ayeenh/features/user_request/domain/entities/request_uesr.dart';
@@ -33,6 +33,24 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
   TextEditingController phone = TextEditingController();
   TextEditingController date = TextEditingController();
   DateTime selectedDate = DateTime.now();
+
+  void checkValueIsEmpty(String value) {
+    if (value.isEmpty) {
+      setState(() {});
+      return;
+    } else {
+      setState(() {});
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    name.addListener(() => checkValueIsEmpty(name.text));
+    address.addListener(() => checkValueIsEmpty(address.text));
+    phone.addListener(() => checkValueIsEmpty(phone.text));
+  }
+
   Future<void> _selectedDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -58,64 +76,69 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
       body: Padding(
         padding:
             EdgeInsets.symmetric(horizontal: AppSized.horizontalPaddingConst),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              AppSizedBox.sizeBoxH20,
-              CustomTextFormField(
-                controller: name,
-                hint: 'name'.tr(),
-              ),
-              AppSizedBox.sizeBoxH10,
-              CustomTextFormField(
-                controller: address,
-                hint: 'address'.tr(),
-              ),
-              AppSizedBox.sizeBoxH10,
-              CustomTextFormField(
-                controller: phone,
-                hint: 'phone'.tr(),
-              ),
-              AppSizedBox.sizeBoxH10,
-              CustomTextFormField(
-                readOnly: true,
-                controller: date,
-                hint: 'date'.tr(),
-                suffixIcon: GestureDetector(
-                  onTap: () {
-                    _selectedDate(context);
-                  },
-                  child: const Icon(
-                    Icons.date_range,
-                    color: AppColors.bluColor,
+        child: ListView(
+          children: [
+            AppSizedBox.sizeBoxH80,
+            Container(
+              padding: EdgeInsets.all(20.w),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.r),
+                  color: AppColors.bluColor.withOpacity(0.2)),
+              child: Column(
+                children: [
+                  CustomTextFormField(
+                    controller: name,
+                    hint: 'name'.tr(),
                   ),
-                ),
+                  AppSizedBox.sizeBoxH10,
+                  CustomTextFormField(
+                    controller: address,
+                    hint: 'address'.tr(),
+                  ),
+                  AppSizedBox.sizeBoxH10,
+                  CustomTextFormField(
+                    controller: phone,
+                    hint: 'phone'.tr(),
+                  ),
+                  AppSizedBox.sizeBoxH10,
+                  CustomTextFormField(
+                    readOnly: true,
+                    controller: date,
+                    hint: 'date'.tr(),
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        _selectedDate(context);
+                      },
+                      child: const Icon(
+                        Icons.date_range,
+                        color: AppColors.bluColor,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 40.h,
-              ),
-              SendUserRequest(
-                requestUser: RequestUser(
-                  userName: name.text,
-                  analysisType: widget.model.name,
-                  dateTime: HelperFunctions.formatDateTime(selectedDate),
-                  isStatus: false,
-                  address: address.text,
-                ),
-              ),
-              AppSizedBox.sizeBoxH10,
-              CustomButtons.outLine(
-               // icon: Icons.cancel,
-                iconColor: AppColors.favorite,
-                title: 'cancel'.tr(),
-                color: AppColors.whitColor,
-                width: double.infinity,
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
+            ),
+            AppSizedBox.sizeBoxH40,
+            name.text.isEmpty || address.text.isEmpty || phone.text.isEmpty
+                ? Align(
+                    alignment: AlignmentDirectional.center,
+                    child: Text(
+                      'please_fill_in_the_data'.tr(),
+                      style: AppStyles.errorStyle()
+                          .copyWith(color: AppColors.warning, fontSize: 16.sp),
+                    ),
+                  )
+                : SendUserRequest(
+                    requestUser: RequestUser(
+                      userName: name.text,
+                      analysisType: widget.model.name,
+                      dateTime: HelperFunctions.formatDateTime(selectedDate),
+                      isStatus: false,
+                      address: address.text,
+                    ),
+                  ),
+          ],
         ),
       ),
     );

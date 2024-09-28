@@ -36,5 +36,7 @@
   "notification": "Notification",
   "search": "Search in the list of analysis",
   "no_analysis_results": "There are no results to display.",
-  "list_is_empty": "List is empty"
+  "list_is_empty": "List is empty",
+  "logout": "Log out",
+  "please_fill_in_the_data": "Please fill in the data"
 }

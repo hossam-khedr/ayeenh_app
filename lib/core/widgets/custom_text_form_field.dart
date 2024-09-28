@@ -59,13 +59,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       controller: widget.controller,
       maxLines: widget.maxLines ?? 1,
       decoration: InputDecoration(
-
         contentPadding: const EdgeInsets.fromLTRB(
           12,
           16,
           12,
           12,
         ),
+        fillColor: AppColors.whitColor,
+        filled: true,
         prefixIcon: widget.iconWidget != null
             ? Padding(
           padding: const EdgeInsetsDirectional.only(
@@ -120,7 +121,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppSized.constantRadius),
             borderSide: const BorderSide(
-              color: AppColors.gryColor,
+              color: AppColors.bluColor,
               width: 1,
             )
         ),
@@ -130,8 +131,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppSized.constantRadius),
             borderSide: const BorderSide(
-              color: AppColors.bluColor,
-              width: 1.5,
+              color: AppColors.success,
+              width: 1,
             )
         ),
         border: InputBorder.none,
