@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/utilities/app_states/pob_up_error_state.dart';
+import '../../../../core/utilities/app_states/pob_up_loading_state.dart';
 import '../../../../core/widgets/custom_buttons.dart';
 
 class HandelLoginState extends StatelessWidget {
@@ -14,30 +16,32 @@ class HandelLoginState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = authDi<AuthCubit>();
+    final cubit = BlocProvider.of<AuthCubit>(context);
     return BlocProvider.value(
       value: cubit,
       child: BlocListener<AuthCubit, AuthStates>(
         listener: (context, state) {
-          // if (state.isLoading) {
-          //   showDialog(
-          //       context: context,
-          //       builder: (context) => const PobUpLoadingState());
-          // }
-          // if (state.isFailure) {
-          //   Navigator.pop(context);
-          //   showDialog(
-          //     context: context,
-          //     builder: (context) =>
-          //         PobUpErrorState(errorMassage: state.errorMassage!),
-          //   );
-          // }
+          if (state.isLoading) {
+            showDialog(
+                context: context,
+                builder: (context) => const PobUpLoadingState());
+          }
+          if (state.isFailure) {
+            Navigator.pop(context);
+            showDialog(
+              context: context,
+              builder: (context) =>
+                  PobUpErrorState(errorMassage: state.errorMassage!),
+            );
+          }
+          if(state.isSuccess){
+            context.go(RoutesName.home);
+          }
         },
         child: CustomButtons.normal(
           title: 'login'.tr(),
           onTap: () {
-           // cubit.login();
-            context.go(RoutesName.home);
+            cubit.login();
           },
         ),
       ),

@@ -3,6 +3,7 @@ enum RequestStatus{
   loading,
   success,
   failure,
+  selectedData
 }
 extension RequestStatusEnum on RequestUserStates {
   bool get isInitial => status == RequestStatus.init;
@@ -12,6 +13,8 @@ extension RequestStatusEnum on RequestUserStates {
   bool get isFailure => status == RequestStatus.failure;
 
   bool get isSuccess => status == RequestStatus.success;
+
+  bool get isSelectedData => status == RequestStatus.selectedData;
 }
 
 class RequestUserStates{

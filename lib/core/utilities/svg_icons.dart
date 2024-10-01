@@ -8,6 +8,9 @@ static const String profileIcon = '${iconPath}profile_icon.svg';
 static const String globalIcon = '${iconPath}global.svg';
 static const String themeIcon = '${iconPath}theme.svg';
 static const String notificationIcon = '${iconPath}notification.svg';
+static const String resultsIcon = '${iconPath}results_icon.svg';
+static const String requestsIcon = '${iconPath}requests_icon.svg';
+static const String allAnalysisIcon = '${iconPath}all_analysis_icon.svg';
 }
 
 abstract class PngIcons{

@@ -55,12 +55,12 @@ class _MainAppScaffoldState extends State<MainAppScaffold> {
       value: SystemUiOverlayStyle(
         statusBarColor: widget.changeToolbarColor
             ? AppColors.primaryColor
-            : AppColors.whitColor,
+            : AppColors.scaffoldBackGroundColor,
         statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
-        backgroundColor: widget.scaffoldColor ?? AppColors.whitColor,
+        backgroundColor: widget.scaffoldColor ?? AppColors.scaffoldBackGroundColor,
         appBar: widget.shooAppBar ? appBar : null,
         body: Stack(
           children: [widget.body],

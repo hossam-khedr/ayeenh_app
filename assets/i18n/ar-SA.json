@@ -39,5 +39,8 @@
 "no_analysis_results": "لاتوجد نتائج لعرضها",
   "list_is_empty": "القاتمه فارغه",
   "logout": "تسجيل خروج",
-  "please_fill_in_the_data": "من فضلك املأ البيانات"
+  "please_fill_in_the_data": "من فضلك املأ البيانات",
+  "want_to_know_about_analysis": "كل ما تريد معرفته عن التحاليل",
+  "type_here": "اكتب هنا ...",
+  "hint_bot_massage": "يمكنك ان تسالني عن اي شي يخص التحاليل  الطبيه اذا تريد اي سوال اكتب لي هنا"
 }

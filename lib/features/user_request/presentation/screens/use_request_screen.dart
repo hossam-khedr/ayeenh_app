@@ -5,14 +5,17 @@ import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:ayeenh/features/home/data/models/analysis_model.dart';
 
 import 'package:ayeenh/features/user_request/domain/entities/request_uesr.dart';
+import 'package:ayeenh/features/user_request/presentation/logic/cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utilities/app_colors.dart';
 import '../../../../core/utilities/helper_functions.dart';
 import '../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../core/widgets/main_app_scaffold.dart';
+import '../widgets/request_date.dart';
 import '../widgets/send_user_request.dart';
 
 class UserRequestScreen extends StatefulWidget {
@@ -32,7 +35,8 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
   TextEditingController address = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController date = TextEditingController();
-  DateTime selectedDate = DateTime.now();
+
+  // DateTime selectedDate = DateTime.now();
 
   void checkValueIsEmpty(String value) {
     if (value.isEmpty) {
@@ -51,28 +55,15 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
     phone.addListener(() => checkValueIsEmpty(phone.text));
   }
 
-  Future<void> _selectedDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: selectedDate,
-      lastDate: DateTime(2100),
-    );
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<RequestUserCubit>(context);
     return MainAppScaffold(
       shooAppBar: true,
       changeToolbarColor: true,
       centerAppBarTitle: true,
       appBarTitle: widget.model.name,
-      appBarColor: AppColors.whitColor,
+      appBarColor: AppColors.scaffoldBackGroundColor,
       body: Padding(
         padding:
             EdgeInsets.symmetric(horizontal: AppSized.horizontalPaddingConst),
@@ -84,7 +75,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
               width: double.infinity,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.r),
-                  color: AppColors.bluColor.withOpacity(0.2)),
+                  color: AppColors.whitColor),
               child: Column(
                 children: [
                   CustomTextFormField(
@@ -102,20 +93,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                     hint: 'phone'.tr(),
                   ),
                   AppSizedBox.sizeBoxH10,
-                  CustomTextFormField(
-                    readOnly: true,
-                    controller: date,
-                    hint: 'date'.tr(),
-                    suffixIcon: GestureDetector(
-                      onTap: () {
-                        _selectedDate(context);
-                      },
-                      child: const Icon(
-                        Icons.date_range,
-                        color: AppColors.bluColor,
-                      ),
-                    ),
-                  ),
+                  const RequestDate(),
                 ],
               ),
             ),
@@ -133,7 +111,8 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                     requestUser: RequestUser(
                       userName: name.text,
                       analysisType: widget.model.name,
-                      dateTime: HelperFunctions.formatDateTime(selectedDate),
+                      dateTime:
+                          HelperFunctions.formatDateTime(cubit.selectedDate!),
                       isStatus: false,
                       address: address.text,
                     ),

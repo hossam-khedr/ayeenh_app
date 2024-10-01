@@ -14,31 +14,31 @@ class PobUpErrorState extends StatelessWidget {
     return Dialog(
       //insetPadding: EdgeInsets.symmetric(horizontal: 150.w),
       child: Container(
-        // padding: EdgeInsets.symmetric(horizontal: 10.w),
-          height: 100.h,
+          // padding: EdgeInsets.symmetric(horizontal: 10.w),
+          height: 300.h,
           decoration: BoxDecoration(
               color: AppColors.whitColor,
-              borderRadius: BorderRadius.circular(5.r)),
+              borderRadius: BorderRadius.circular(20.r)),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Align(
-                alignment: AlignmentDirectional.topEnd,
-                child: Icon(
-                  Icons.error,
-                  color: AppColors.favorite,
-                  size: 40.w,
-                ),
-              ),
               Padding(
-                padding:  EdgeInsets.symmetric(vertical: 5.h,horizontal: 5.w),
+                padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
                 child: Text(
                   //maxLines: 3,
                   //  overflow: TextOverflow.ellipsis,
                   errorMassage,
-                  style: AppStyles.errorStyle(),
+                  style: AppStyles.errorStyle().copyWith(
+                    fontSize: 16.sp,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
-
+              Icon(
+                Icons.error,
+                color: AppColors.favorite,
+                size: 80.w,
+              ),
             ],
           )),
     );

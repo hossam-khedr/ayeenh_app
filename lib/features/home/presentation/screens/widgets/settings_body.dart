@@ -26,7 +26,7 @@ class _SettingsBodyState extends State<SettingsBody> {
           width: double.infinity,
           height: 300.h,
           decoration: BoxDecoration(
-              color: AppColors.bluColor.withOpacity(0.2),
+              color: AppColors.whitColor,
               borderRadius: BorderRadius.circular(20.r)),
           child: ListView(
             children: [
