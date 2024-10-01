@@ -20,7 +20,7 @@ class _ResultsBodyState extends State<ResultsBody> {
   Widget build(BuildContext context) {
   return ListView.separated(
     padding: EdgeInsets.all(10.w),
-    separatorBuilder: (context,index)=> const Divider(color: AppColors.warning,),
+    separatorBuilder: (context,index)=> const Divider(),
     itemCount: 5,
       itemBuilder: (context,index){
     return const ResultItem();

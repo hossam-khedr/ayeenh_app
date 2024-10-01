@@ -38,5 +38,8 @@
   "no_analysis_results": "There are no results to display.",
   "list_is_empty": "List is empty",
   "logout": "Log out",
-  "please_fill_in_the_data": "Please fill in the data"
+  "please_fill_in_the_data": "Please fill in the data",
+  "want_to_know_about_analysis": "Everything you want to know about analysis",
+  "type_here": "Type here ...",
+  "hint_bot_massage":"You can ask me anything about medical tests. If you have any questions, write to me here."
 }

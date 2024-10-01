@@ -4,6 +4,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/utilities/app_themes.dart';
+
 class AyeenhApp extends StatelessWidget {
   const AyeenhApp({super.key});
 
@@ -16,9 +18,7 @@ class AyeenhApp extends StatelessWidget {
       builder: (context,child){
         return  MaterialApp.router(
           debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: AppStyles.fontFamily,
-        ),
+        theme: appThemeLight(),
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,

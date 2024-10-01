@@ -26,7 +26,7 @@ class _RegisterBodyState extends State<RegisterBody> {
      // height: 500.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),
-        color: AppColors.bluColor.withOpacity(0.2),
+        color: AppColors.whitColor,
       ),
       child: Column(
         children: [

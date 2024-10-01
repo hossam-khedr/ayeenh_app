@@ -36,7 +36,25 @@ class _AnalysisBodyState extends State<AnalysisBody> {
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
-          child: SearchBarWidget(searchController: searchController,)
+          child: Row(
+            children: [
+              Expanded(
+                  child: SearchBarWidget(
+                searchController: searchController,
+              )),
+              AppSizedBox.sizeBoxW20,
+              InkWell(
+                onTap: (){
+                  context.push(RoutesName.bot);
+                },
+                child: Icon(
+                  Icons.message,
+                  color: AppColors.warning,
+                  size: 40.w,
+                ),
+              )
+            ],
+          ),
         ),
         BlocBuilder<HomeCubit, HomeStates>(
           builder: (context, state) {
@@ -51,13 +69,15 @@ class _AnalysisBodyState extends State<AnalysisBody> {
               );
             }
             if (state.isSuccess) {
-              if(state.analysis.isEmpty){
+              if (state.analysis.isEmpty) {
                 return const SliverToBoxAdapter(
-                  child: FullScreenEmptyState(message:'list_is_empty' ,),
+                  child: FullScreenEmptyState(
+                    message: 'list_is_empty',
+                  ),
                 );
               }
               return SliverGrid(
-                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 20.0.w,
                   mainAxisSpacing: 1.0.h,
@@ -71,9 +91,7 @@ class _AnalysisBodyState extends State<AnalysisBody> {
                       padding: EdgeInsetsDirectional.symmetric(horizontal: 5.w),
                       margin: EdgeInsets.symmetric(vertical: 8.h),
                       decoration: BoxDecoration(
-                          color: AppColors.primaryColor.withOpacity(0.2),
-                          border: Border.all(
-                              color: AppColors.primaryColor, width: 0.5),
+                          color: AppColors.whitColor,
                           borderRadius: BorderRadius.circular(10.r)),
                       child: AnalysisItem(
                         analysisCount: searchController.text.isEmpty

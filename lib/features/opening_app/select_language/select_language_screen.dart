@@ -44,7 +44,8 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                   height: 70.h,
                 ),
               ),
-              const Spacer(),
+            //  const Spacer(),
+              SizedBox(height: 100.h,),
               Align(
                 alignment: AlignmentDirectional.centerStart,
                 child: Text(
@@ -78,12 +79,12 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                   ),
                 ],
               ),
-              AppSizedBox.sizeBoxH20,
+             const Spacer(),
               CustomButtons.normal(title: 'next'.tr(), onTap: (){
                 //todo save app language in local and navigate to next screen
                 context.go( RoutesName.onBoarding);
               }),
-              SizedBox(height: 250.h,)
+              AppSizedBox.sizeBoxH20
             ],
           ),
         ),

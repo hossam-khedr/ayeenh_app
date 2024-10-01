@@ -22,7 +22,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       width: double.infinity,
       height: 200.h,
       decoration: BoxDecoration(
-          color: AppColors.bluColor.withOpacity(0.2),
+          color: AppColors.whitColor,
           borderRadius: BorderRadius.circular(20.r)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

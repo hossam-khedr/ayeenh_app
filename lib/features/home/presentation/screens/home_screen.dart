@@ -2,6 +2,7 @@ import 'package:ayeenh/core/utilities/app_routes.dart';
 import 'package:ayeenh/core/utilities/app_sized.dart';
 import 'package:ayeenh/core/utilities/app_sized_box.dart';
 import 'package:ayeenh/core/utilities/enums.dart';
+import 'package:ayeenh/core/utilities/svg_icons.dart';
 import 'package:ayeenh/core/widgets/main_app_scaffold.dart';
 import 'package:ayeenh/features/app_utils/presentation/screens/settings_screen.dart';
 import 'package:ayeenh/features/home/presentation/screens/widgets/analysis_body.dart';
@@ -66,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomNavBar(
                 itemsInNavBar: [
                   ItemInNavBar(
-                    icon: Icons.analytics_outlined,
+                    iconPath: SvgIcons.allAnalysisIcon,
                     isSelected: navBarItem == NavBarItem.home ? true : false,
                     label: 'analysis'.tr(),
                     onTap: () {
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   ItemInNavBar(
-                    icon: Icons.receipt_sharp,
+                    iconPath: SvgIcons.resultsIcon,
                     isSelected: navBarItem == NavBarItem.results ? true : false,
                     label: 'results'.tr(),
                     onTap: () {
@@ -86,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   ItemInNavBar(
-                    icon: Icons.get_app_rounded,
+                    iconPath: SvgIcons.requestsIcon,
                     isSelected: navBarItem == NavBarItem.request ? true : false,
                     label: 'user_requests'.tr(),
                     onTap: () {
@@ -96,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   ItemInNavBar(
-                    icon: Icons.settings,
+                    iconPath: '',
                     isSelected: navBarItem == NavBarItem.setting ? true : false,
                     label: 'settings'.tr(),
                     onTap: () {

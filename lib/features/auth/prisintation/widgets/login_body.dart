@@ -28,9 +28,8 @@ class _LoginBodyState extends State<LoginBody> {
         width: double.infinity,
         height: 250.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.r),
-          color: AppColors.bluColor.withOpacity(0.2)
-        ),
+            borderRadius: BorderRadius.circular(20.r),
+            color: AppColors.whitColor),
         child: Column(
           children: [
             CustomTextFormField(
@@ -50,9 +49,11 @@ class _LoginBodyState extends State<LoginBody> {
                 child: Text(
                   'forgot_password'.tr(),
                   style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.darkGryColor),
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.darkGryColor,
+                    decoration: TextDecoration.underline
+                  ),
                 ),
                 onPressed: () {},
               ),

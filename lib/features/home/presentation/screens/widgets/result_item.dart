@@ -18,12 +18,18 @@ class PieChart2State extends State {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children:[
-        Expanded(
-          child: Container(
-            height: 120,
-            padding: EdgeInsets.all(16.w),
+    return Container(
+      padding: EdgeInsetsDirectional.all(10.w),
+      decoration: BoxDecoration(
+        color: AppColors.whitColor,
+        borderRadius: BorderRadius.circular(10.r)
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children:[
+          SizedBox(
+            height: 80.h,
+            width: 200.w,
             child: LineChart(
               LineChartData(
                 gridData: const FlGridData(show: false),
@@ -55,31 +61,31 @@ class PieChart2State extends State {
               ),
             ),
           ),
+          Column(
+          children: [
+            indicator(
+              color: AppColors.bluColor,
+              text: 'some text',
+            ),
+            SizedBox(height: 5.h,),
+            indicator(
+              color: AppColors.success,
+              text: 'some text',
+            ),
+            SizedBox(height: 5.h,),
+            indicator(
+              color: AppColors.warning,
+              text: 'some text',
+            ),
+            SizedBox(height: 5.h,),
+            indicator(
+              color: AppColors.favorite,
+              text: 'some text',
+            ),
+          ],
         ),
-        Column(
-        children: [
-          indicator(
-            color: AppColors.bluColor,
-            text: 'some text',
-          ),
-          SizedBox(height: 5.h,),
-          indicator(
-            color: AppColors.success,
-            text: 'some text',
-          ),
-          SizedBox(height: 5.h,),
-          indicator(
-            color: AppColors.warning,
-            text: 'some text',
-          ),
-          SizedBox(height: 5.h,),
-          indicator(
-            color: AppColors.favorite,
-            text: 'some text',
-          ),
-        ],
+      ]
       ),
-    ]
     );
     // return AspectRatio(
     //   aspectRatio: 1.3,

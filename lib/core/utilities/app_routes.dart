@@ -2,6 +2,8 @@ import 'package:ayeenh/features/app_utils/presentation/screens/settings_screen.d
 import 'package:ayeenh/features/auth/auth_di.dart';
 import 'package:ayeenh/features/auth/prisintation/logic/cubit.dart';
 import 'package:ayeenh/features/auth/prisintation/screens/auth_screen.dart';
+import 'package:ayeenh/features/chat_pot/presentation/logic/cubit.dart';
+import 'package:ayeenh/features/chat_pot/presentation/screens/bot_screen.dart';
 import 'package:ayeenh/features/home/home_di.dart';
 import 'package:ayeenh/features/home/presentation/logic/cubit.dart';
 import 'package:ayeenh/features/user_request/presentation/logic/cubit.dart';
@@ -14,7 +16,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/data/models/analysis_model.dart';
-import '../../features/home/domain/entities/anlytics_category_model.dart';
 import '../../features/opening_app/splash/splash_screen.dart';
 
 abstract class AppRoutes {
@@ -59,6 +60,13 @@ abstract class AppRoutes {
             child: UserRequestScreen(model: model),
           );
         }),
+    GoRoute(
+      path: RoutesName.bot,
+      builder: (context, state) => BlocProvider(
+        create: (context) => BotCubit(),
+        child: const BotScreen(),
+      ),
+    ),
   ]);
 
 
@@ -75,4 +83,5 @@ abstract class RoutesName {
   static const home = '/home';
   static const userRequest = '/userRequest';
   static const settings = '/settings';
+  static const bot = '/bot';
 }

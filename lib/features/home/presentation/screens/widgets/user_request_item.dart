@@ -24,7 +24,7 @@ class _UserRequestItemState extends State<UserRequestItem> {
       // width: 250.w,
       height: 100.h,
       decoration: BoxDecoration(
-          color: AppColors.primaryColor.withOpacity(0.2),
+          color: AppColors.whitColor,
           borderRadius: BorderRadius.circular(10.r)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,7 +65,7 @@ class _UserRequestItemState extends State<UserRequestItem> {
               child: Container(
                 padding: EdgeInsets.all(5.w),
                 decoration: BoxDecoration(
-                    color: AppColors.whitColor,
+                    color: AppColors.scaffoldBackGroundColor,
                     borderRadius: BorderRadius.circular(10.r)),
                 child: Row(
                   children: [

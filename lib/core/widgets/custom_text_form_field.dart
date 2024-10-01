@@ -121,7 +121,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppSized.constantRadius),
             borderSide: const BorderSide(
-              color: AppColors.bluColor,
+              color: AppColors.gryColor,
               width: 1,
             )
         ),
