@@ -25,10 +25,10 @@ abstract class CustomButtons{
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppSized.constantRadius),
           color: color ?? AppColors.bluColor,
-          border: Border.all(
-            color: AppColors.darkGryColor,
-            width: 1
-          )
+          // border: Border.all(
+          //   color: AppColors.darkGryColor,
+          //   width: 1
+          // )
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

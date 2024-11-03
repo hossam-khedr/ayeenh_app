@@ -6,6 +6,7 @@ import 'package:ayeenh/features/chat_pot/presentation/logic/cubit.dart';
 import 'package:ayeenh/features/chat_pot/presentation/screens/bot_screen.dart';
 import 'package:ayeenh/features/home/home_di.dart';
 import 'package:ayeenh/features/home/presentation/logic/cubit.dart';
+import 'package:ayeenh/features/opening_app/logic/cubit.dart';
 import 'package:ayeenh/features/user_request/presentation/logic/cubit.dart';
 import 'package:ayeenh/features/user_request/presentation/screens/use_request_screen.dart';
 import 'package:ayeenh/features/home/presentation/screens/home_screen.dart';
@@ -22,15 +23,24 @@ abstract class AppRoutes {
   static final GoRouter _goRoute = GoRouter(routes: <RouteBase>[
     GoRoute(
       path: RoutesName.splash,
-      builder: (context, state) => const SplashScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context)=>OpeningCubit(),
+        child: const SplashScreen(),
+      ),
     ),
     GoRoute(
       path: RoutesName.selectLanguage,
-      builder: (context, state) => const SelectLanguageScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => OpeningCubit(),
+        child: const SelectLanguageScreen(),
+      ),
     ),
     GoRoute(
       path: RoutesName.onBoarding,
-      builder: (context, state) => const OnBoardingScreen(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => OpeningCubit(),
+        child: const OnBoardingScreen(),
+      ),
     ),
     GoRoute(
       path: RoutesName.settings,
@@ -56,7 +66,7 @@ abstract class AppRoutes {
         builder: (context, state) {
           AnalysisModel model = state.extra as AnalysisModel;
           return BlocProvider(
-            create: (context)=>requestDi<RequestUserCubit>(),
+            create: (context) => requestDi<RequestUserCubit>(),
             child: UserRequestScreen(model: model),
           );
         }),
@@ -68,8 +78,6 @@ abstract class AppRoutes {
       ),
     ),
   ]);
-
-
 
   static GoRouter get routes => _goRoute;
 }

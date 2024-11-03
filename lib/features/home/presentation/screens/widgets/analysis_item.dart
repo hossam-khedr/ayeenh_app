@@ -52,7 +52,6 @@ class _AnalysisItemState extends State<AnalysisItem> {
             width: 80.w,
             decoration: BoxDecoration(
                 color: AppColors.bluColor,
-                border: Border.all(color: AppColors.darkGryColor, width: 0.4),
                 borderRadius: BorderRadius.circular(4.r)),
             child: Text(
               'add_request'.tr(),

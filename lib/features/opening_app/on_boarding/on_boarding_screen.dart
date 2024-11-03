@@ -3,10 +3,13 @@ import 'package:ayeenh/core/utilities/app_sized.dart';
 import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:ayeenh/core/widgets/main_app_scaffold.dart';
 import 'package:ayeenh/features/opening_app/data/models/on_boarding_model.dart';
+import 'package:ayeenh/features/opening_app/logic/cubit.dart';
+import 'package:ayeenh/features/opening_app/logic/states.dart';
 import 'package:ayeenh/features/opening_app/on_boarding/widgets/on_boarding_body.dart';
 import 'package:ayeenh/features/opening_app/on_boarding/widgets/on_boarding_indecator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -81,11 +84,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     );
                   }
                 }),
-            TextButton(
-              onPressed: () {
-                context.go(RoutesName.auth);
+            BlocListener<OpeningCubit,OpeningStates>(
+              listener: (context,state){
+                if(state.isOnBoardingViewsSuccess){
+                  context.go(RoutesName.auth);
+                }
               },
-              child: Text('skip'.tr(),style: AppStyles.textButtonStyle(),),
+              child: TextButton(
+                onPressed: () {
+                  context.read<OpeningCubit>().skipOnBoarding();
+                  //context.go(RoutesName.auth);
+                },
+                child: Text('skip'.tr(),style: AppStyles.textButtonStyle(),),
+              ),
             ),
             SizedBox(
               height: 30.h,

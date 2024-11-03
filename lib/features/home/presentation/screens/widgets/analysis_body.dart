@@ -5,6 +5,7 @@ import 'package:ayeenh/core/utilities/app_states/full_screen_loading_state.dart'
 import 'package:ayeenh/core/widgets/custom_text_form_field.dart';
 import 'package:ayeenh/features/home/presentation/logic/cubit.dart';
 import 'package:ayeenh/features/home/presentation/logic/state.dart';
+import 'package:ayeenh/features/home/presentation/screens/widgets/bot_icon.dart';
 import 'package:ayeenh/features/home/presentation/screens/widgets/search_bar_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -42,17 +43,7 @@ class _AnalysisBodyState extends State<AnalysisBody> {
                   child: SearchBarWidget(
                 searchController: searchController,
               )),
-              AppSizedBox.sizeBoxW20,
-              InkWell(
-                onTap: (){
-                  context.push(RoutesName.bot);
-                },
-                child: Icon(
-                  Icons.message,
-                  color: AppColors.warning,
-                  size: 40.w,
-                ),
-              )
+              const BotIcon(),
             ],
           ),
         ),

@@ -30,10 +30,10 @@ class _AuthWidgetState extends State<AuthWidget> {
           color:
               widget.isSelected ? AppColors.bluColor : AppColors.whitColor,
           borderRadius: BorderRadius.circular(AppSized.constantRadius),
-          border: Border.all(
-            color:AppColors.darkGryColor,
-            width:widget.isSelected ? 1 : 0.5,
-          ),
+          // border: Border.all(
+          //   color:AppColors.darkGryColor,
+          //   width:widget.isSelected ? 1 : 0.5,
+          // ),
         ),
         child: Text(
           widget.title,
