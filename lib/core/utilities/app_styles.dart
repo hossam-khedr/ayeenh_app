@@ -58,7 +58,7 @@ abstract class AppStyles {
   static TextStyle hintStyle(){
     return TextStyle(
         fontWeight: FontWeight.w500,
-        fontSize: 14.sp,
+        fontSize: 12.sp,
         color: AppColors.gryColor
     );
   }

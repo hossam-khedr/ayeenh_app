@@ -29,7 +29,7 @@ class _RequestDateState extends State<RequestDate> {
           height: 45.h,
           decoration: BoxDecoration(
               color: AppColors.scaffoldBackGroundColor,
-              borderRadius: BorderRadius.circular(20.r)),
+              borderRadius: BorderRadius.circular(10.r)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

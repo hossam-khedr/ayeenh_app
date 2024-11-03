@@ -39,6 +39,7 @@ class _LoginBodyState extends State<LoginBody> {
             AppSizedBox.sizeBoxH10,
             CustomTextFormField(
               isPass: true,
+              obscureText: true,
               controller: cubit.loginPasswordController,
               hint: 'password'.tr(),
             ),
@@ -48,12 +49,9 @@ class _LoginBodyState extends State<LoginBody> {
               child: TextButton(
                 child: Text(
                   'forgot_password'.tr(),
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.darkGryColor,
-                    decoration: TextDecoration.underline
-                  ),
+                  style: AppStyles.hintStyle().copyWith(
+                    color: AppColors.warning,
+                  )
                 ),
                 onPressed: () {},
               ),

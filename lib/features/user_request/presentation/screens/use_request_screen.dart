@@ -112,7 +112,7 @@ class _UserRequestScreenState extends State<UserRequestScreen> {
                       userName: name.text,
                       analysisType: widget.model.name,
                       dateTime:
-                          HelperFunctions.formatDateTime(cubit.selectedDate!),
+                          HelperFunctions.formatDateTime(cubit.selectedDate??DateTime.now()),
                       isStatus: false,
                       address: address.text,
                     ),

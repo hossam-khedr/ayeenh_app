@@ -59,6 +59,7 @@ class _RegisterBodyState extends State<RegisterBody> {
             controller: cubit.passwordController,
             hint: 'password'.tr(),
             isPass: true,
+            obscureText: true,
           ),
           AppSizedBox.sizeBoxH20,
           const HandelRegisterState(),

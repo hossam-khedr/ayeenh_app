@@ -4,9 +4,13 @@ import 'package:ayeenh/core/utilities/app_sized_box.dart';
 import 'package:ayeenh/core/utilities/app_styles.dart';
 import 'package:ayeenh/core/utilities/svg_icons.dart';
 import 'package:ayeenh/core/widgets/custom_buttons.dart';
+import 'package:ayeenh/core/widgets/custom_snack_bar.dart';
 import 'package:ayeenh/core/widgets/main_app_scaffold.dart';
+import 'package:ayeenh/features/opening_app/logic/cubit.dart';
+import 'package:ayeenh/features/opening_app/logic/states.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -44,8 +48,10 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                   height: 70.h,
                 ),
               ),
-            //  const Spacer(),
-              SizedBox(height: 100.h,),
+              //  const Spacer(),
+              SizedBox(
+                height: 100.h,
+              ),
               Align(
                 alignment: AlignmentDirectional.centerStart,
                 child: Text(
@@ -54,36 +60,51 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
                 ),
               ),
               AppSizedBox.sizeBoxH20,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  LanguageWidget(
-                    isSelected: languageType==LanguageType.arabic?true:false,
-                    onTap: (){
-                      setState(() {
-                        languageType =LanguageType.arabic;
-                      });
-                    },
-                    image: SvgIcons.egIcon,
-                    title: 'العربية',
-                  ),
-                  LanguageWidget(
-                    isSelected: languageType ==LanguageType.english?true:false,
-                    onTap: (){
-                      setState(() {
-                        languageType = LanguageType.english;
-                      });
-                    },
-                    image: SvgIcons.usIcon,
-                    title: 'English',
-                  ),
-                ],
+              BlocListener<OpeningCubit, OpeningStates>(
+                listener: (context, state) {
+                  if (state.isSelectedLangSuccess) {
+                    CustomSnackBar.show(
+                      context: context,
+                      massage: 'Selected language success',
+                      snackBarType: SnackBarType.info
+                    );
+                    context.go(RoutesName.onBoarding);
+                  }
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    LanguageWidget(
+                      isSelected:
+                          languageType == LanguageType.arabic ? true : false,
+                      onTap: () {
+                        setState(() {
+                          languageType = LanguageType.arabic;
+                        });
+                      },
+                      image: SvgIcons.egIcon,
+                      title: 'العربية',
+                    ),
+                    LanguageWidget(
+                      isSelected:
+                          languageType == LanguageType.english ? true : false,
+                      onTap: () {
+                        setState(() {
+                          languageType = LanguageType.english;
+                        });
+                      },
+                      image: SvgIcons.usIcon,
+                      title: 'English',
+                    ),
+                  ],
+                ),
               ),
-             const Spacer(),
-              CustomButtons.normal(title: 'next'.tr(), onTap: (){
-                //todo save app language in local and navigate to next screen
-                context.go( RoutesName.onBoarding);
-              }),
+              const Spacer(),
+              CustomButtons.normal(
+                  title: 'next'.tr(),
+                  onTap: () {
+                    context.read<OpeningCubit>().selectLanguage(languageType!);
+                  }),
               AppSizedBox.sizeBoxH20
             ],
           ),
